@@ -12,11 +12,17 @@ export function proxy(req: NextRequest) {
 
   if (authHeader.startsWith('Basic ')) {
     const base64 = authHeader.slice(6);
-    const decoded = atob(base64);           // "username:password"
-    const password = decoded.split(':')[1]; // we only care about the password
-
-    if (password === adminPassword) {
-      return NextResponse.next();
+    try {
+      const decoded = atob(base64);           // "username:password"
+      const colonIdx = decoded.indexOf(':');
+      if (colonIdx !== -1) {
+        const password = decoded.slice(colonIdx + 1);
+        if (password === adminPassword) {
+          return NextResponse.next();
+        }
+      }
+    } catch {
+      // malformed base64 — fall through to 401
     }
   }
 

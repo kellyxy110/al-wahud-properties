@@ -30,7 +30,7 @@ export default async function PropertiesPage() {
             <div className="text-center">
               <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>⚠️</div>
               <p style={{ fontSize: '16px', fontWeight: 600, color: 'var(--dark-text)', marginBottom: '6px' }}>Failed to load properties</p>
-              <p style={{ fontSize: '14px' }}>{error.message}</p>
+              <p style={{ fontSize: '14px' }}>Unable to load listings. Please try again later.</p>
             </div>
           </div>
         ) : (

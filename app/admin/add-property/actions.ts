@@ -41,11 +41,24 @@ export async function addProperty(
     ? imagesRaw.split(',').map(u => u.trim()).filter(Boolean)
     : [];
 
-  const invalidImages = images.filter(u => !/^https?:\/\/.+/.test(u));
+  // Block SSRF: only allow images from trusted CDN hosts
+  const ALLOWED_IMAGE_HOSTS = [
+    'res.cloudinary.com',
+    'abynlxbyoeqebattetdg.supabase.co',
+    'images.unsplash.com',
+  ];
+  const invalidImages = images.filter(u => {
+    try {
+      const url = new URL(u);
+      return url.protocol !== 'https:' || !ALLOWED_IMAGE_HOSTS.includes(url.hostname);
+    } catch {
+      return true;
+    }
+  });
   if (invalidImages.length > 0) {
     return {
       status: 'error',
-      message: `Invalid image URL${invalidImages.length > 1 ? 's' : ''} — must start with http:// or https://:\n${invalidImages.join('\n')}`,
+      message: `Invalid image URL${invalidImages.length > 1 ? 's' : ''} — must be HTTPS from Cloudinary, Supabase, or Unsplash:\n${invalidImages.join('\n')}`,
     };
   }
 
@@ -64,6 +77,12 @@ export async function addProperty(
         .map(l => ({ i: '📌', l }));
     }
   }
+
+  // ── Length caps (prevent oversized payloads) ───────────────────────────
+  if (title.length > 200)       return { status: 'error', message: 'Title must be 200 characters or fewer.' };
+  if (description.length > 5000) return { status: 'error', message: 'Description must be 5000 characters or fewer.' };
+  if (location.length > 300)    return { status: 'error', message: 'Location must be 300 characters or fewer.' };
+  if (images.length > 20)       return { status: 'error', message: 'Maximum 20 images per property.' };
 
   // ── Basic validation ───────────────────────────────────────────────────
   if (!title)    return { status: 'error', message: 'Title is required.' };
