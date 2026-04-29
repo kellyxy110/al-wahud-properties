@@ -132,3 +132,8 @@ html.dark ::-webkit-scrollbar-track { background: #1c2128; }
 
 /* ─── FOOTER TOP GRID ─── */
 @media(min-width:1024px) { .footer-top-grid { grid-template-columns: 2fr 1fr 1fr 1fr !important; } }
+
+/* ─── PROPERTIES PAGE BANNER ─── */
+.prop-page-banner { background:linear-gradient(135deg,var(--teal) 0%,var(--teal) 52%,var(--peach) 52%,var(--peach) 100%);padding:64px 60px;position:relative;overflow:hidden; }
+.prop-page-banner::before { content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/svg%3E"); }
+@media(max-width:1023px) { .prop-page-banner { padding:40px 16px; } }
