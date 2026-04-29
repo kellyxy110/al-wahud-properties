@@ -139,7 +139,7 @@ export default async function BlogPreview() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {hasSupabaseData
             ? (posts as BlogPost[]).map(post => <SupabaseBlogCard key={post.id} post={post} />)
-            : BLOG_POSTS.map(post => <StaticBlogCard key={post.id} post={post} />)
+            : BLOG_POSTS.slice(0, 3).map(post => <StaticBlogCard key={post.id} post={post} />)
           }
         </div>
       </div>

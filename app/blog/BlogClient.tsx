@@ -17,6 +17,11 @@ const TAG_MAP: Record<string, string> = {
 
 const TAGS = ['Lagos', 'Abuja', 'Investment', 'Rental', 'Diaspora', 'C of O', 'Duplex', 'Land', 'Mortgage', 'Lekki'];
 
+const CAT_COUNTS = CATEGORIES.filter(c => c !== 'All Posts').map(c => ({
+  lbl: c,
+  cnt: BLOG_POSTS.filter(p => p.tag === TAG_MAP[c]).length,
+}));
+
 export default function BlogClient() {
   const [activeCat, setActiveCat] = useState('All Posts');
 
@@ -123,7 +128,7 @@ export default function BlogClient() {
         <div style={{ background: '#fff', borderRadius: 20, padding: 24, boxShadow: '0 4px 16px rgba(0,0,0,.06)', marginBottom: 20 }}>
           <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, color: '#111827', marginBottom: 16, paddingBottom: 12, borderBottom: '1px solid #F3F4F6' }}>Categories</div>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
-            {[{ lbl: 'Market Insights', cnt: 12 }, { lbl: 'Investment Tips', cnt: 8 }, { lbl: 'Buyer Guides', cnt: 15 }, { lbl: 'Legal & Finance', cnt: 6 }, { lbl: 'Diaspora Buyers', cnt: 9 }, { lbl: 'Landlord Advice', cnt: 4 }].map(c => (
+            {CAT_COUNTS.map(c => (
               <li key={c.lbl} onClick={() => setActiveCat(c.lbl)} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontFamily: 'var(--font-inter)', fontSize: 13, color: activeCat === c.lbl ? '#1B9954' : '#374151', cursor: 'pointer', padding: '8px 0', borderBottom: '1px solid #F9FAFB', fontWeight: activeCat === c.lbl ? 700 : 400 }}>
                 {c.lbl}
                 <span style={{ background: activeCat === c.lbl ? '#ECFDF5' : '#F3F4F6', color: activeCat === c.lbl ? '#1B9954' : '#6B7280', fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 99 }}>{c.cnt}</span>
@@ -133,7 +138,7 @@ export default function BlogClient() {
         </div>
         <div style={{ background: '#fff', borderRadius: 20, padding: 24, boxShadow: '0 4px 16px rgba(0,0,0,.06)', marginBottom: 20 }}>
           <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, color: '#111827', marginBottom: 16, paddingBottom: 12, borderBottom: '1px solid #F3F4F6' }}>Recent Posts</div>
-          {BLOG_POSTS.map(post => (
+          {BLOG_POSTS.slice(0, 5).map(post => (
             <Link key={post.id} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', display: 'flex', gap: 12, marginBottom: 14, cursor: 'pointer', paddingBottom: 14, borderBottom: '1px solid #F9FAFB' }}>
               <div style={{ width: 60, height: 60, borderRadius: 12, background: post.gradient, flexShrink: 0, overflow: 'hidden', position: 'relative' }}>
                 <Image src={post.img} alt="" fill sizes="60px" style={{ objectFit: 'cover' }} />

@@ -48,7 +48,7 @@ export default function Services() {
         </div>
 
         {/* Desktop 4-column grid */}
-        <div className="hidden lg:grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '20px' }}>
+        <div className="hidden lg:grid lg:grid-cols-4 gap-5">
           {SERVICES.map((s) => (
             <div key={s.title} className={`service-card ${s.cssClass}`}>
               <div className="service-icon" style={{ background: s.iconBg }}>{s.icon}</div>
@@ -63,7 +63,7 @@ export default function Services() {
           {SERVICES.map((s) => (
             <div key={s.title} style={{ background: '#fff', borderRadius: '20px', padding: '22px', boxShadow: '0 4px 16px rgba(0,0,0,.06)', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
               <div style={{ width: '52px', height: '52px', background: s.iconBg, borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+                {s.icon}
               </div>
               <div>
                 <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '14px', color: '#111827', marginBottom: '4px' }}>{s.title}</div>

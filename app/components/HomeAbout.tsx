@@ -4,7 +4,7 @@ export default function HomeAbout() {
   return (
     <section id="about" className="py-20 px-4 lg:px-16" style={{ background: '#fff' }}>
       <div className="max-w-7xl mx-auto">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '72px', alignItems: 'center' }} className="hidden lg:grid">
+        <div className="hidden lg:grid lg:grid-cols-2 gap-[72px] items-center">
           {/* Visual */}
           <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', height: '520px', background: "url('/images/businessinfo2.jpeg') center/cover, linear-gradient(135deg,#2D7A76,#0F5E36)", display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <div style={{ position: 'absolute', bottom: '24px', left: '24px', right: '24px', background: 'rgba(255,255,255,.95)', borderRadius: '16px', padding: '16px', display: 'flex', alignItems: 'center', gap: '12px' }}>
