@@ -115,25 +115,16 @@ export default async function BlogPreview() {
   return (
     <section className="py-20 px-4 lg:px-16" style={{ background: 'var(--bg)' }}>
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
-          <div>
-            <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '10px' }}>
-              Knowledge Hub
-            </div>
-            <h2 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 'clamp(28px,4vw,36px)', color: 'var(--dark-text)', lineHeight: 1.2 }}>
-              Latest <span style={{ color: 'var(--primary)' }}>Insights</span>
-            </h2>
-            <p style={{ fontFamily: 'var(--font-inter)', fontSize: '15px', color: 'var(--gray)', maxWidth: '440px', marginTop: '10px', lineHeight: 1.7 }}>
-              Expert guides on Nigerian property law, investment hotspots and diaspora buying.
-            </p>
+        <div className="text-center mb-14">
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '10px' }}>
+            Insights &amp; News
           </div>
-          <Link
-            href="/blog"
-            className="self-start sm:self-auto font-bold text-[13px] px-6 py-2.5 rounded-full flex-shrink-0 transition-opacity hover:opacity-90"
-            style={{ fontFamily: 'var(--font-poppins)', background: 'none', border: '2px solid var(--primary)', color: 'var(--primary)' }}
-          >
-            All Articles →
-          </Link>
+          <h2 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 'clamp(28px,4vw,36px)', color: 'var(--dark-text)', lineHeight: 1.2 }}>
+            From Our <span style={{ color: 'var(--primary)' }}>Blog</span>
+          </h2>
+          <p style={{ fontFamily: 'var(--font-inter)', fontSize: '15px', color: 'var(--gray)', maxWidth: '480px', margin: '10px auto 0', lineHeight: 1.7 }}>
+            Expert articles, market insights and investment tips from the Al-Wajud Properties team.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -141,6 +132,16 @@ export default async function BlogPreview() {
             ? (posts as BlogPost[]).map(post => <SupabaseBlogCard key={post.id} post={post} />)
             : BLOG_POSTS.slice(0, 3).map(post => <StaticBlogCard key={post.id} post={post} />)
           }
+        </div>
+
+        <div className="text-center mt-10">
+          <Link
+            href="/blog"
+            className="inline-block font-bold text-[13px] px-8 py-3 rounded-full transition-opacity hover:opacity-90"
+            style={{ fontFamily: 'var(--font-poppins)', background: 'var(--primary)', color: '#fff' }}
+          >
+            View All Articles →
+          </Link>
         </div>
       </div>
     </section>

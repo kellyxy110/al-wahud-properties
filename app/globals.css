@@ -129,3 +129,6 @@ html.dark ::-webkit-scrollbar-track { background: #1c2128; }
 .mob-hamburger { background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center;justify-content:center; }
 .mob-header { position:sticky;top:0;z-index:90;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,0,0,.06);padding:12px 16px;display:flex;align-items:center;justify-content:space-between; }
 @media(min-width:1024px) { .mob-sidebar,.mob-sidebar-overlay { display:none!important; } }
+
+/* ─── FOOTER TOP GRID ─── */
+@media(min-width:1024px) { .footer-top-grid { grid-template-columns: 2fr 1fr 1fr 1fr !important; } }

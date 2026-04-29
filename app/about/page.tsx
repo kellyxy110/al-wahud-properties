@@ -75,12 +75,12 @@ export default function AboutPage() {
       </section>
 
       {/* ── Stats Bar ── */}
-      <div style={{ background: 'linear-gradient(135deg,#0F5E36,#2D7A76)', padding: '56px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', textAlign: 'center' }}>
-          {[{ icon: '🏠', num: '500+', lbl: 'Properties Sold' }, { icon: '👥', num: '1,000+', lbl: 'Happy Clients' }, { icon: '🏆', num: '10+', lbl: 'Years Experience' }, { icon: '📍', num: '15+', lbl: 'Locations Covered' }].map((s, i) => (
-            <div key={s.lbl} style={{ padding: 24, borderRight: i < 3 ? '1px solid rgba(255,255,255,.15)' : 'none' }}>
+      <div style={{ background: 'linear-gradient(135deg,#0F5E36,#2D7A76)', padding: '56px 24px' }}>
+        <div className="grid grid-cols-2 lg:grid-cols-4" style={{ textAlign: 'center', maxWidth: '1024px', margin: '0 auto' }}>
+          {[{ icon: '🏠', num: '500+', lbl: 'Properties Sold' }, { icon: '👥', num: '1,000+', lbl: 'Happy Clients' }, { icon: '🏆', num: '10+', lbl: 'Years Experience' }, { icon: '📍', num: '15+', lbl: 'Locations Covered' }].map((s) => (
+            <div key={s.lbl} style={{ padding: 24 }}>
               <div style={{ fontSize: 28, marginBottom: 10 }}>{s.icon}</div>
-              <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 900, fontSize: 44, color: '#fff', lineHeight: 1 }}>{s.num}</div>
+              <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 900, fontSize: 'clamp(28px,4vw,44px)', color: '#fff', lineHeight: 1 }}>{s.num}</div>
               <div style={{ fontFamily: 'var(--font-inter)', fontSize: 13, color: 'rgba(255,255,255,.75)', marginTop: 8 }}>{s.lbl}</div>
             </div>
           ))}

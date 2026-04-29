@@ -1,56 +1,71 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-const FOOTER_LINKS = {
-  'Quick Links': [
-    { label: 'Properties', href: '/properties' },
-    { label: 'Services', href: '/services' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' },
-  ],
-  'Services': [
-    { label: 'Property Sales', href: '/services' },
-    { label: 'Property Rentals', href: '/services' },
-    { label: 'Valuation', href: '/services' },
-    { label: 'Investment Advisory', href: '/services' },
-    { label: 'Property Management', href: '/services' },
-  ],
-  'Legal': [
-    { label: 'Privacy Policy', href: '/legal' },
-    { label: 'Terms of Service', href: '/legal' },
-    { label: 'Cookie Policy', href: '/legal' },
-    { label: 'Disclaimer', href: '/legal' },
-  ],
-};
+const QUICK_LINKS = [
+  { label: 'Home', href: '/' },
+  { label: 'Properties', href: '/properties' },
+  { label: 'Services', href: '/services' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+];
 
-const WA_SVG = <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>;
+const PROPERTY_TYPES = [
+  { label: 'Luxury Duplexes', href: '/properties' },
+  { label: 'Apartments & Flats', href: '/properties' },
+  { label: 'Commercial Spaces', href: '/properties' },
+  { label: 'Land & Plots', href: '/properties' },
+  { label: 'Short Let', href: '/properties' },
+  { label: 'Off-plan Homes', href: '/properties' },
+];
+
+const CONTACT_INFO: { label: string; href: string | null }[] = [
+  { label: '📞 0703 537 4592', href: 'tel:07035374592' },
+  { label: '✉️ alwajudproperties75@gmail.com', href: 'mailto:alwajudproperties75@gmail.com' },
+  { label: '📍 Ikeja, Lagos State', href: null },
+  { label: '⏰ Mon–Sat: 8am – 6pm', href: null },
+  { label: '💬 WhatsApp Us', href: 'https://wa.me/2347035374592' },
+];
+
+const WA_SVG = (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+  </svg>
+);
 
 export default function Footer() {
   return (
     <footer style={{ background: 'var(--dark)', color: '#fff' }}>
       <div className="px-4 lg:px-16 pt-16 pb-8 max-w-7xl mx-auto">
-        {/* Top grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {/* Brand */}
-          <div className="col-span-2 lg:col-span-1">
-            <Image src="/images/alwajudlogo.jpeg" alt="Al-Wajud Properties" width={127} height={38} style={{ height: '38px', width: 'auto', objectFit: 'contain', borderRadius: '4px', marginBottom: '16px', display: 'block' }} />
-            <p style={{ fontFamily: 'var(--font-inter)', fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, maxWidth: '260px', marginBottom: '20px' }}>
-              Nigeria&apos;s most trusted real estate firm. NIESV-certified, CAC-registered, and ISO 9001:2015 compliant.
+
+        {/* Top grid: 2 cols mobile → 2fr 1fr 1fr 1fr desktop */}
+        <div className="footer-top-grid grid grid-cols-2 gap-10 mb-12">
+          <div
+            className="col-span-2 lg:col-span-1"
+            style={{ gridColumn: undefined }}
+          >
+            {/* Brand */}
+            <Image
+              src="/images/alwajudlogo.jpeg"
+              alt="Al-Wajud Properties"
+              width={127} height={38}
+              style={{ height: '38px', width: 'auto', objectFit: 'contain', borderRadius: '4px', marginBottom: '16px', display: 'block' }}
+            />
+            <p style={{ fontFamily: 'var(--font-inter)', fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, maxWidth: '280px', marginBottom: '20px' }}>
+              Nigeria&apos;s premier real estate company connecting buyers, sellers and investors with the finest properties across Lagos, Abuja and Port Harcourt.
             </p>
-            {/* Social */}
             <div className="flex gap-2.5">
               {[
-                { href: 'https://wa.me/2347035374592', icon: WA_SVG, label: 'WhatsApp' },
+                { href: 'https://wa.me/2347035374592', label: 'WhatsApp', icon: WA_SVG },
                 {
                   href: 'https://www.instagram.com/alwajudproperties',
-                  icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>,
                   label: 'Instagram',
+                  icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>,
                 },
                 {
                   href: 'https://www.tiktok.com/@alwajudproperties',
-                  icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.54V6.78a4.84 4.84 0 01-1.07-.09z"/></svg>,
                   label: 'TikTok',
+                  icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.54V6.78a4.84 4.84 0 01-1.07-.09z"/></svg>,
                 },
               ].map(s => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener" aria-label={s.label}
@@ -62,56 +77,71 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(FOOTER_LINKS).map(([heading, links]) => (
-            <div key={heading}>
-              <h4 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '14px', color: '#fff', marginBottom: '20px' }}>{heading}</h4>
-              <ul className="flex flex-col gap-2.5">
-                {links.map(l => (
-                  <li key={l.label}>
-                    <Link href={l.href} style={{ fontFamily: 'var(--font-inter)', fontSize: '13px', color: 'rgba(255,255,255,0.6)', transition: 'color 0.2s' }}
-                      className="hover:text-[var(--gold)]">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA strip */}
-        <div className="rounded-2xl p-6 lg:p-8 mb-10 flex flex-col lg:flex-row items-center justify-between gap-5"
-          style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
+          {/* Quick Links */}
           <div>
-            <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: '20px', color: '#fff', marginBottom: '4px' }}>
-              Ready to find your dream property?
-            </div>
-            <div style={{ fontFamily: 'var(--font-inter)', fontSize: '14px', color: 'rgba(255,255,255,0.65)' }}>
-              Talk to our team — free consultation, no commitment required.
-            </div>
+            <h4 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '14px', color: '#fff', marginBottom: '20px' }}>Quick Links</h4>
+            <ul className="flex flex-col gap-2.5">
+              {QUICK_LINKS.map(l => (
+                <li key={l.label}>
+                  <Link href={l.href}
+                    style={{ fontFamily: 'var(--font-inter)', fontSize: '13px', color: 'rgba(255,255,255,0.6)', transition: 'color 0.2s' }}
+                    className="hover:text-[var(--gold)]">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="flex gap-3 flex-shrink-0">
-            <a href="https://wa.me/2347035374592" target="_blank" rel="noopener"
-              className="flex items-center gap-2 font-bold text-sm px-6 py-3 rounded-full text-white"
-              style={{ fontFamily: 'var(--font-poppins)', background: '#25D366', boxShadow: '0 4px 14px rgba(37,211,102,0.35)' }}>
-              {WA_SVG} WhatsApp
-            </a>
-            <Link href="/contact"
-              className="font-bold text-sm px-6 py-3 rounded-full text-white"
-              style={{ fontFamily: 'var(--font-poppins)', background: 'rgba(255,255,255,0.15)', border: '1.5px solid rgba(255,255,255,0.3)' }}>
-              Contact Form
-            </Link>
+
+          {/* Property Types */}
+          <div>
+            <h4 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '14px', color: '#fff', marginBottom: '20px' }}>Property Types</h4>
+            <ul className="flex flex-col gap-2.5">
+              {PROPERTY_TYPES.map(l => (
+                <li key={l.label}>
+                  <Link href={l.href}
+                    style={{ fontFamily: 'var(--font-inter)', fontSize: '13px', color: 'rgba(255,255,255,0.6)', transition: 'color 0.2s' }}
+                    className="hover:text-[var(--gold)]">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Us — spans 2 on mobile, 1 on desktop */}
+          <div className="col-span-2 lg:col-span-1">
+            <h4 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '14px', color: '#fff', marginBottom: '20px' }}>Contact Us</h4>
+            <ul className="flex flex-col gap-2.5">
+              {CONTACT_INFO.map(c => (
+                <li key={c.label}>
+                  {c.href ? (
+                    <a href={c.href}
+                      target={c.href.startsWith('http') ? '_blank' : undefined}
+                      rel="noopener"
+                      style={{ fontFamily: 'var(--font-inter)', fontSize: '13px', color: 'rgba(255,255,255,0.6)', transition: 'color 0.2s' }}
+                      className="hover:text-[var(--gold)]">
+                      {c.label}
+                    </a>
+                  ) : (
+                    <span style={{ fontFamily: 'var(--font-inter)', fontSize: '13px', color: 'rgba(255,255,255,0.6)' }}>
+                      {c.label}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-3" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+        <div className="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
+          style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
           <p style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>
-            © {new Date().getFullYear()} Al-Wajud Properties Ltd. RC No. 1234567. All rights reserved.
+            © {new Date().getFullYear()} Al-Wajud Properties. All rights reserved.
           </p>
           <p style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>
-            NIESV-Certified · CAC-Registered · ISO 9001:2015
+            Built with ❤️ for Nigerian Real Estate
           </p>
         </div>
       </div>
