@@ -37,7 +37,7 @@ export default function Hero() {
         }} />
 
         {/* ── Desktop layout ── */}
-        <div className="hidden lg:flex items-center gap-16 px-16 py-20 w-full relative z-10">
+        <div className="hidden lg:flex items-center w-full relative z-10" style={{ padding: '0 60px', gap: '60px' }}>
 
           {/* Left */}
           <div className="flex-1">
@@ -106,7 +106,7 @@ export default function Hero() {
             </div>
 
             {/* Search widget */}
-            <div className="w-full max-w-[380px] rounded-3xl p-4" style={{ background: 'rgba(255,255,255,0.95)', boxShadow: '0 8px 32px rgba(0,0,0,0.15)' }}>
+            <div className="w-full max-w-[380px] p-4" style={{ background: 'rgba(255,255,255,0.95)', boxShadow: '0 8px 32px rgba(0,0,0,0.15)', borderRadius: '20px' }}>
               <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '14px', color: 'var(--dark-text)', marginBottom: '12px' }}>
                 Quick Property Search
               </div>

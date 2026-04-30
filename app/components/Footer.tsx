@@ -36,7 +36,7 @@ const WA_SVG = (
 export default function Footer() {
   return (
     <footer style={{ background: 'var(--dark)', color: '#fff' }}>
-      <div className="px-4 lg:px-16 pt-16 pb-8 max-w-7xl mx-auto">
+      <div className="px-4 lg:px-[60px] pt-16 pb-8">
 
         {/* Top grid: 2 cols mobile → 2fr 1fr 1fr 1fr desktop */}
         <div className="footer-top-grid grid grid-cols-2 gap-10 mb-12">

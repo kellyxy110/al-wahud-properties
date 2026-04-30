@@ -13,8 +13,8 @@ import Footer from '@/app/components/Footer';
 
 function PropertiesSkeleton() {
   return (
-    <section className="py-20 px-4 lg:px-16 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 px-4 lg:px-[60px] bg-white">
+      <div>
         <div className="text-center mb-14">
           <div className="h-3 w-24 bg-gray-200 rounded-full mx-auto mb-3 animate-pulse" />
           <div className="h-8 w-56 bg-gray-200 rounded-full mx-auto mb-3 animate-pulse" />
@@ -40,8 +40,8 @@ function PropertiesSkeleton() {
 
 function BlogPreviewSkeleton() {
   return (
-    <section className="py-20 px-4 lg:px-16" style={{ background: 'var(--bg)' }}>
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 px-4 lg:px-[60px]" style={{ background: 'var(--bg)' }}>
+      <div>
         <div className="mb-14 space-y-3">
           <div className="h-3 w-28 bg-gray-200 rounded-full animate-pulse" />
           <div className="h-8 w-44 bg-gray-200 rounded-full animate-pulse" />

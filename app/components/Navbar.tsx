@@ -87,7 +87,7 @@ export default function Navbar() {
         className="hidden lg:block sticky top-0 z-[200]"
         style={{ background: 'rgba(255,255,255,.97)', backdropFilter: 'blur(12px)', boxShadow: '0 1px 16px rgba(0,0,0,.08)' }}
       >
-        <div className="max-w-7xl mx-auto px-16 h-[70px] flex items-center justify-between">
+        <div className="h-[70px] flex items-center justify-between" style={{ padding: '0 60px' }}>
           <Link href="/">
             <Image src="/images/alwajudlogo.jpeg" alt="Al-Wajud Properties" width={140} height={42} style={{ height: '42px', width: 'auto', objectFit: 'contain', display: 'block' }} />
           </Link>

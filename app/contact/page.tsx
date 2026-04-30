@@ -11,11 +11,12 @@ export const metadata: Metadata = {
 const PATTERN_BG = `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/svg%3E")`;
 
 const FAQS = [
-  { q: 'How do I start working with Al-Wajud Properties?', a: 'Simply contact us via WhatsApp, call or the form below. We\'ll schedule a free consultation at a time that suits you.' },
-  { q: 'Do you charge any upfront fees?', a: 'No. Our property sales service is fully commission-based — you only pay when a deal is completed. Valuation services have a fixed fee quoted upfront.' },
-  { q: 'Can I buy property in Nigeria from abroad?', a: 'Absolutely. Our diaspora desk handles everything remotely — title search, escrow, virtual tours and legal representation. We\'ve served clients in the UK, USA, Canada and Europe.' },
-  { q: 'How long does a property transaction take?', a: 'Typically 4–12 weeks depending on the type of property and transaction. We\'ll give you a realistic timeline at your initial consultation.' },
-  { q: 'Are your listings verified?', a: 'Yes. Every property on our platform is personally verified by our team — title check, site inspection and seller identity confirmed before listing.' },
+  { q: 'How do I buy property from abroad?', a: "Our dedicated Diaspora Desk facilitates the entire purchase process remotely. We offer virtual property tours via WhatsApp or Zoom, handle all documentation on your behalf, and operate a secure payment process with full transparency. You can complete the entire transaction from abroad without visiting Nigeria." },
+  { q: 'What documents do I need to buy property in Nigeria?', a: "You'll need a valid government-issued ID (NIN slip, international passport or driver's licence), proof of funds or financing, and a signed offer letter. For title verification, we conduct thorough searches on the Certificate of Occupancy (C of O), Deed of Assignment, and any encumbrances on the property." },
+  { q: 'Can I get a mortgage to buy property in Nigeria?', a: "Yes. Several Nigerian banks and the Federal Mortgage Bank of Nigeria (FMBN) offer mortgage products. Eligibility typically requires steady income, a valid NHF contribution history, and a verifiable property title. Our team can refer you to trusted mortgage consultants who will guide you through the process." },
+  { q: 'How long does the property buying process take?', a: "A typical transaction takes 4–8 weeks from offer to completion, depending on legal due diligence, title transfer and payment arrangements. For off-plan properties, the timeline varies with the development schedule. We keep you updated at every stage of the process." },
+  { q: 'What are your agency fees?', a: "Our agency commission for property sales is typically 5% of the transaction value. For lettings, the standard fee is equivalent to one month's rent. All fees are disclosed upfront before any commitment — no hidden charges, no surprises." },
+  { q: 'Do you offer property management services?', a: "Yes. We offer full property management for landlords — including tenant sourcing and screening, rent collection, routine maintenance coordination, facility management, and annual inspection reports. This is especially popular with diaspora clients who own properties in Nigeria." },
 ];
 
 export default function ContactPage() {
@@ -38,10 +39,10 @@ export default function ContactPage() {
       </div>
 
       {/* ── Mobile Banner ── */}
-      <div className="lg:hidden" style={{ background: 'linear-gradient(135deg,#2D7A76,#0F5E36)', padding: '24px 16px 32px' }}>
-        <p style={{ fontFamily: 'var(--font-inter)', fontSize: 10, color: 'rgba(255,255,255,.7)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 6 }}>Reach Us</p>
-        <h1 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 900, fontSize: 24, color: '#fff', marginBottom: 8 }}>Get In Touch</h1>
-        <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: 'rgba(255,255,255,.8)' }}>Free consultation — no obligation required</p>
+      <div className="lg:hidden" style={{ background: 'linear-gradient(135deg,#2D7A76,#0F5E36)', padding: '20px 16px 28px' }}>
+        <p style={{ fontFamily: 'var(--font-inter)', fontSize: 10, color: 'rgba(255,255,255,.7)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 6 }}>Get In Touch</p>
+        <h1 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 900, fontSize: 24, color: '#fff', marginBottom: 6 }}>We&apos;d Love to<br />Hear From You</h1>
+        <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: 'rgba(255,255,255,.8)' }}>Free consultation · No obligation</p>
       </div>
 
       {/* ── Contact Layout (PC) ── */}
@@ -57,7 +58,7 @@ export default function ContactPage() {
               { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.72A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14z"/></svg>, iconBg: 'linear-gradient(135deg,#1B9954,#0F5E36)', label: 'Call Us', value: '0703 537 4592', sub: '0701 672 7604' },
               { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>, iconBg: 'linear-gradient(135deg,#E63946,#FF6B9D)', label: 'Email Us', value: 'alwajudproperties75@gmail.com', sub: 'Reply within 24 hours', small: true },
               { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>, iconBg: 'linear-gradient(135deg,#FFB703,#2D7A76)', label: 'Head Office', value: '112, Adeniyi Jones, Ikeja, Lagos', sub: 'Branch: 27, Taiwo Oguntona Str, Ajala Ijaiye, Lagos', small: true },
-              { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, iconBg: 'linear-gradient(135deg,#2D7A76,#0F5E36)', label: 'Business Hours', value: 'Mon – Sat: 9:00 AM – 6:00 PM (WAT)', sub: 'Sunday: Closed', small: true },
+              { icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>, iconBg: 'linear-gradient(135deg,#2D7A76,#0F5E36)', label: 'Business Hours', value: 'Mon – Sat: 9:00 AM – 6:00 PM (WAT)', sub: 'Sunday: Closed', sub2: '🌍 International clients: reply within 12 hrs', small: true },
             ].map(card => (
               <div key={card.label} style={{ background: '#fff', borderRadius: 18, padding: 20, display: 'flex', gap: 16, alignItems: 'flex-start', boxShadow: '0 4px 16px rgba(0,0,0,.06)', transition: 'transform .2s' }}>
                 <div style={{ width: 48, height: 48, borderRadius: 14, background: card.iconBg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{card.icon}</div>
@@ -65,6 +66,7 @@ export default function ContactPage() {
                   <div style={{ fontFamily: 'var(--font-inter)', fontSize: 11, fontWeight: 600, color: '#1B9954', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: 4 }}>{card.label}</div>
                   <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: card.small ? 13 : 15, color: '#111827', marginBottom: 2 }}>{card.value}</div>
                   <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#6B7280' }}>{card.sub}</div>
+                  {'sub2' in card && <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#6B7280', marginTop: 4 }}>{(card as { sub2: string }).sub2}</div>}
                 </div>
               </div>
             ))}
@@ -110,35 +112,49 @@ export default function ContactPage() {
               <input type="tel" placeholder="+234 000 000 0000" style={{ width: '100%', padding: '12px 16px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', boxSizing: 'border-box' }} />
             </div>
             <div>
-              <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>Enquiry Type</label>
+              <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>Country *</label>
               <select style={{ width: '100%', padding: '12px 16px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', cursor: 'pointer', boxSizing: 'border-box' }}>
-                <option>Select type</option>
-                <option>Buying a Property</option>
-                <option>Renting a Property</option>
-                <option>Property Valuation</option>
-                <option>Investment Advisory</option>
-                <option>General Enquiry</option>
+                <option value="">Select country...</option>
+                <option>Nigeria</option>
+                <option>United Kingdom</option>
+                <option>United States</option>
+                <option>Canada</option>
+                <option>UAE</option>
+                <option>Australia</option>
+                <option>Other</option>
               </select>
+            </div>
+          </div>
+          <div style={{ marginBottom: 18 }}>
+            <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>I&apos;m interested in: *</label>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginTop: 6 }}>
+              {['Buying Property', 'Renting Property', 'Property Investment', 'Listing My Property', 'Construction Services', 'Facility Management', 'Other'].map(opt => (
+                <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', cursor: 'pointer' }}>
+                  <input type="checkbox" style={{ accentColor: '#1B9954', width: 15, height: 15 }} /> {opt}
+                </label>
+              ))}
             </div>
           </div>
           <div style={{ marginBottom: 18 }}>
             <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>Budget Range</label>
             <select style={{ width: '100%', padding: '12px 16px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', cursor: 'pointer', boxSizing: 'border-box' }}>
-              <option>Select budget</option>
-              <option>Under ₦50M</option>
+              <option value="">Select budget...</option>
+              <option>₦5M – ₦20M</option>
+              <option>₦20M – ₦50M</option>
               <option>₦50M – ₦120M</option>
               <option>₦120M – ₦300M</option>
               <option>₦300M+</option>
             </select>
           </div>
           <div style={{ marginBottom: 18 }}>
-            <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>Message</label>
-            <textarea placeholder="Tell us what you're looking for..." rows={4} style={{ width: '100%', padding: '12px 16px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', resize: 'vertical', minHeight: 120, boxSizing: 'border-box' }} />
+            <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>Message *</label>
+            <textarea placeholder="Tell us more about what you're looking for..." rows={4} style={{ width: '100%', padding: '12px 16px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', resize: 'vertical', minHeight: 120, boxSizing: 'border-box' }} />
           </div>
           <a href="https://wa.me/2347035374592?text=Hello%20Al-Wajud%20Properties!%20I%20would%20like%20a%20free%20consultation." target="_blank" rel="noopener noreferrer"
-            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', background: 'linear-gradient(135deg,#E63946,#FF6B9D)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, border: 'none', borderRadius: 14, padding: 16, cursor: 'pointer', boxShadow: '0 8px 24px rgba(230,57,70,.4)', textDecoration: 'none', marginTop: 4 }}>
-            Send Message via WhatsApp
+            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', background: 'linear-gradient(135deg,#1B9954,#0F5E36)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, border: 'none', borderRadius: 14, padding: 16, cursor: 'pointer', boxShadow: '0 8px 24px rgba(27,153,84,.4)', textDecoration: 'none', marginTop: 4 }}>
+            Submit Message
           </a>
+          <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#9CA3AF', textAlign: 'center', marginTop: 12 }}>We&apos;ll respond within 24 hours · Your data is 100% secure</p>
         </div>
       </div>
 
@@ -172,13 +188,13 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── FAQ Section ── */}
-      <section style={{ padding: '72px 60px 80px' }}>
-        <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, fontWeight: 600, color: '#1B9954', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: 10 }}>FAQs</div>
+      {/* ── FAQ Section (PC only) ── */}
+      <section className="hidden lg:block" style={{ padding: '72px 60px 80px', background: '#fff' }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, fontWeight: 600, color: '#1B9954', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: 10 }}>Common Questions</div>
           <h2 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 32, color: '#111827', lineHeight: 1.2 }}>Frequently Asked <span style={{ color: '#1B9954' }}>Questions</span></h2>
         </div>
-        <div style={{ maxWidth: 760, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 12 }}>
+        <div style={{ maxWidth: 760, margin: '40px auto 0', display: 'flex', flexDirection: 'column', gap: 12 }}>
           {FAQS.map(faq => (
             <div key={faq.q} style={{ background: '#fff', borderRadius: 16, boxShadow: '0 2px 12px rgba(0,0,0,.06)', overflow: 'hidden' }}>
               <details style={{ cursor: 'pointer' }}>
@@ -194,30 +210,73 @@ export default function ContactPage() {
       </section>
 
       {/* ── Mobile Contact ── */}
-      <div className="lg:hidden" style={{ padding: '24px 16px 120px' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 20 }}>
-          {[
-            { emoji: '📞', label: 'Call Us', value: '0703 537 4592', href: 'tel:07035374592' },
-            { emoji: '💬', label: 'WhatsApp', value: 'Chat with us now', href: 'https://wa.me/2347035374592' },
-            { emoji: '✉️', label: 'Email', value: 'alwajudproperties75@gmail.com', href: 'mailto:alwajudproperties75@gmail.com' },
-            { emoji: '📍', label: 'Head Office', value: '112, Adeniyi Jones, Ikeja, Lagos', href: '#' },
-          ].map(c => (
-            <a key={c.label} href={c.href} target={c.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" style={{ background: '#fff', borderRadius: 16, padding: '16px 18px', display: 'flex', alignItems: 'center', gap: 14, boxShadow: '0 4px 14px rgba(0,0,0,.06)', textDecoration: 'none' }}>
-              <span style={{ fontSize: 22 }}>{c.emoji}</span>
-              <div>
-                <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, color: '#1B9954', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: 2 }}>{c.label}</div>
-                <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 13, color: '#111827' }}>{c.value}</div>
-              </div>
-            </a>
-          ))}
+      <div className="lg:hidden" style={{ padding: '16px', display: 'flex', gap: 10 }}>
+        <a href="tel:07035374592" style={{ flex: 1, background: 'linear-gradient(135deg,#1B9954,#0F5E36)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 13, borderRadius: 14, padding: '14px 8px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, textDecoration: 'none' }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.72A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14z"/></svg>
+          Call Now
+        </a>
+        <a href="https://wa.me/2347035374592?text=Hello%20Al-Wajud%20Properties!" target="_blank" rel="noopener noreferrer" style={{ flex: 1, background: '#25D366', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 13, borderRadius: 14, padding: '14px 8px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, textDecoration: 'none' }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:alwajudproperties75@gmail.com" style={{ flex: 1, background: 'linear-gradient(135deg,#E63946,#FF6B9D)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 13, borderRadius: 14, padding: '14px 8px', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, textDecoration: 'none' }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+      </div>
+
+      {/* Mobile contact form */}
+      <div className="lg:hidden" style={{ background: '#fff', margin: '0 16px', borderRadius: 20, padding: 22, boxShadow: '0 4px 16px rgba(0,0,0,.06)' }}>
+        <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 17, color: '#111827', marginBottom: 6 }}>Send a Message</div>
+        <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#6B7280', marginBottom: 18 }}>We&apos;ll respond within 24 hours</div>
+        <input type="text" placeholder="Your Full Name *" style={{ width: '100%', padding: '12px 14px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', marginBottom: 12, boxSizing: 'border-box' }} />
+        <input type="email" placeholder="Email Address *" style={{ width: '100%', padding: '12px 14px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', marginBottom: 12, boxSizing: 'border-box' }} />
+        <input type="tel" placeholder="Phone Number" style={{ width: '100%', padding: '12px 14px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', marginBottom: 12, boxSizing: 'border-box' }} />
+        <select style={{ width: '100%', padding: '12px 14px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', cursor: 'pointer', marginBottom: 12, boxSizing: 'border-box' }}>
+          <option value="">Select country...</option>
+          <option>Nigeria</option><option>United Kingdom</option><option>United States</option><option>Canada</option><option>UAE</option><option>Other</option>
+        </select>
+        <div style={{ marginBottom: 12 }}>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 8 }}>I&apos;m interested in: *</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
+            {['Buying', 'Renting', 'Investment', 'Listing', 'Construction', 'Other'].map(opt => (
+              <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: 6, fontFamily: 'var(--font-inter)', fontSize: 12, color: '#374151' }}>
+                <input type="checkbox" style={{ accentColor: '#1B9954' }} /> {opt}
+              </label>
+            ))}
+          </div>
         </div>
-        <a href="https://wa.me/2347035374592?text=Hello%20Al-Wajud%20Properties!%20I%20would%20like%20a%20free%20consultation." target="_blank" rel="noopener noreferrer"
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, width: '100%', background: '#25D366', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, borderRadius: '1.5rem', padding: 16, boxShadow: '0 8px 24px rgba(37,211,102,.4)', textDecoration: 'none', marginBottom: 12 }}>
-          WhatsApp Us Now
+        <select style={{ width: '100%', padding: '12px 14px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', cursor: 'pointer', marginBottom: 12, boxSizing: 'border-box' }}>
+          <option value="">Budget range...</option>
+          <option>₦5M – ₦20M</option><option>₦20M – ₦50M</option><option>₦50M – ₦120M</option><option>₦120M – ₦300M</option><option>₦300M+</option>
+        </select>
+        <textarea placeholder="Message... *" rows={4} style={{ width: '100%', padding: '12px 14px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', resize: 'vertical', minHeight: 90, marginBottom: 12, boxSizing: 'border-box' }} />
+        <a href="https://wa.me/2347035374592?text=Hello%20Al-Wajud%20Properties!" target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', background: 'linear-gradient(135deg,#1B9954,#0F5E36)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 14, border: 'none', borderRadius: 14, padding: 14, cursor: 'pointer', boxShadow: '0 6px 20px rgba(27,153,84,.4)', textDecoration: 'none', textAlign: 'center' }}>
+          Submit Message
         </a>
-        <a href="tel:07035374592" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, width: '100%', background: 'linear-gradient(135deg,#1B9954,#0F5E36)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, borderRadius: '1.5rem', padding: 16, textDecoration: 'none' }}>
-          Call Us Directly
-        </a>
+        <p style={{ fontFamily: 'var(--font-inter)', fontSize: 11, color: '#9CA3AF', textAlign: 'center', marginTop: 10 }}>We&apos;ll respond within 24 hours</p>
+      </div>
+
+      {/* Mobile office info */}
+      <div className="lg:hidden" style={{ padding: '20px 16px 120px' }}>
+        <div style={{ background: '#fff', borderRadius: 16, padding: 16, boxShadow: '0 2px 12px rgba(0,0,0,.05)', marginBottom: 10 }}>
+          <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 13, color: '#111827', marginBottom: 8 }}>📞 Phone</div>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151' }}>0703 537 4592 &nbsp;·&nbsp; 0701 672 7604</div>
+        </div>
+        <div style={{ background: '#fff', borderRadius: 16, padding: 16, boxShadow: '0 2px 12px rgba(0,0,0,.05)', marginBottom: 10 }}>
+          <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 13, color: '#111827', marginBottom: 8 }}>📧 Email</div>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#374151' }}>alwajudproperties75@gmail.com</div>
+        </div>
+        <div style={{ background: '#fff', borderRadius: 16, padding: 16, boxShadow: '0 2px 12px rgba(0,0,0,.05)', marginBottom: 10 }}>
+          <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 13, color: '#111827', marginBottom: 8 }}>📍 Offices</div>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#374151', marginBottom: 4 }}><strong>Head Office:</strong> 112, Adeniyi Jones, Ikeja, Lagos</div>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#374151' }}><strong>Branch:</strong> 27, Taiwo Oguntona Str, Ajala Ijaiye, Lagos</div>
+        </div>
+        <div style={{ background: '#fff', borderRadius: 16, padding: 16, boxShadow: '0 2px 12px rgba(0,0,0,.05)' }}>
+          <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 13, color: '#111827', marginBottom: 8 }}>🕐 Business Hours</div>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#374151' }}>Mon – Sat: 9:00 AM – 6:00 PM (WAT)</div>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#6B7280', marginTop: 3 }}>Sunday: Closed &nbsp;·&nbsp; International: reply within 12 hrs</div>
+        </div>
       </div>
 
       <Footer />

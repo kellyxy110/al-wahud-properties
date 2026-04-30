@@ -74,7 +74,7 @@ html.dark ::-webkit-scrollbar-track { background: #1c2128; }
 /* ─── STORY REELS ─── */
 @keyframes glow-ring { 0%,100%{box-shadow:0 0 0 3px #1877F2,0 0 16px rgba(24,119,242,.6)} 50%{box-shadow:0 0 0 3px #42A5F5,0 0 24px rgba(66,165,245,.9)} }
 @keyframes glow-ring2 { 0%,100%{box-shadow:0 0 0 3px #0095f6,0 0 14px rgba(0,149,246,.5)} 50%{box-shadow:0 0 0 3px #4fc3f7,0 0 22px rgba(79,195,247,.8)} }
-.story-row { display:flex;gap:16px;overflow-x:auto;padding:24px 64px;scrollbar-width:none;background:#fff;border-bottom:1px solid #F3F4F6; }
+.story-row { display:flex;gap:16px;overflow-x:auto;padding:24px 60px;scrollbar-width:none;background:#fff;border-bottom:1px solid #F3F4F6; }
 .story-row::-webkit-scrollbar { display:none; }
 .story-reel { display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;flex-shrink:0; }
 .story-ring { width:72px;height:72px;border-radius:50%;animation:glow-ring 2s ease-in-out infinite;padding:3px;position:relative; }

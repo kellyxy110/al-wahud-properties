@@ -46,8 +46,8 @@ const CERTS: Cert[] = [
 
 export default function HomeCertifications() {
   return (
-    <section id="certs" className="py-20 px-4 lg:px-16" style={{ background: 'var(--bg)' }}>
-      <div className="max-w-7xl mx-auto">
+    <section id="certs" className="py-20 px-4 lg:px-[60px]" style={{ background: 'var(--bg)' }}>
+      <div>
         <div className="text-center" style={{ marginBottom: '56px' }}>
           <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '12px' }}>
             Accredited &amp; Trusted

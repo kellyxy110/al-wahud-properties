@@ -374,10 +374,10 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: 7,
     tag: 'Buyer Guide',
-    title: "5 Red Flags to Avoid When Buying Property in Nigeria",
-    excerpt: "Protect your investment — learn the 5 most dangerous red flags when buying Nigerian property and how serious investors verify before committing funds.",
-    date: 'March 5, 2026',
-    readTime: '4 min read',
+    title: "7 Red Flags When Buying Property in Nigeria",
+    excerpt: "Protect your investment — learn the most dangerous red flags when buying Nigerian property and how serious investors verify before committing funds.",
+    date: 'March 20, 2026',
+    readTime: '6 min read',
     img: '/images/blogpost-7.jpeg',
     gradient: 'linear-gradient(135deg,#E63946,#FFB703)',
     slug: 'red-flags-buying-property-nigeria',
@@ -638,7 +638,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 16,
-    tag: 'Market Insights',
+    tag: 'Market Insight',
     title: "Lagos Real Estate Market Forecast 2026",
     excerpt: "Lagos property prices, demand drivers, infrastructure pipeline, and rental market trends for 2026. A data-driven forecast for investors planning entry or expansion this year.",
     date: 'March 30, 2026',

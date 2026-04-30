@@ -176,8 +176,8 @@ export default async function FeaturedProperties() {
   const hasSupabaseData = properties && properties.length > 0;
 
   return (
-    <section id="listings" className="py-20 px-4 lg:px-16 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="listings" className="py-20 px-4 lg:px-[60px] bg-white">
+      <div>
         <div className="text-center mb-14">
           <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '10px' }}>
             Premium Selection
