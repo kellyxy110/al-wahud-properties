@@ -19,10 +19,7 @@ function PropertyCard({ p }: { p: Property }) {
 
   return (
     <Link href={`/properties/${p.id}`} className="block group">
-      <div
-        className="bg-white rounded-[20px] overflow-hidden transition-transform duration-300 group-hover:-translate-y-1.5"
-        style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.07)' }}
-      >
+      <div className="bg-white rounded-[20px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.07)] transition-[transform,box-shadow] duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
         <div
           className="relative w-full h-[210px]"
           style={{
@@ -32,20 +29,23 @@ function PropertyCard({ p }: { p: Property }) {
           }}
         >
           <div className="absolute top-3 left-3 right-3 flex justify-between items-center">
-            <span
-              className="text-[10px] font-bold px-2.5 py-1 rounded-full"
-              style={{ fontFamily: 'var(--font-poppins)', background: badge.bg, color: badge.color }}
-            >
-              {p.status}
-            </span>
-            {p.featured && (
+            <div className="flex flex-col gap-1">
               <span
-                className="text-[9px] font-extrabold px-2.5 py-1 rounded-full"
-                style={{ fontFamily: 'var(--font-poppins)', background: 'rgba(255,183,3,0.95)', color: '#111' }}
+                className="text-[10px] font-bold px-2.5 py-1 rounded-full"
+                style={{ fontFamily: 'var(--font-poppins)', background: badge.bg, color: badge.color }}
               >
-                ⭐ FEATURED
+                {p.status}
               </span>
-            )}
+              {p.featured && (
+                <span
+                  className="text-[9px] font-extrabold px-2.5 py-1 rounded-full self-start"
+                  style={{ fontFamily: 'var(--font-poppins)', background: 'rgba(255,183,3,0.95)', color: '#111' }}
+                >
+                  ⭐ FEATURED
+                </span>
+              )}
+            </div>
+            <button className="prop-fav" aria-label="Save property">❤️</button>
           </div>
         </div>
         <div className="p-4">
@@ -60,10 +60,10 @@ function PropertyCard({ p }: { p: Property }) {
             {p.location}
           </div>
           <div className="flex gap-1.5 mt-2.5 flex-wrap">
-            {p.bedrooms > 0 && <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700" style={{ fontFamily: 'var(--font-inter)' }}>🛏 {p.bedrooms} Beds</span>}
-            {p.bathrooms > 0 && <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700" style={{ fontFamily: 'var(--font-inter)' }}>🚿 {p.bathrooms} Baths</span>}
-            {p.sqm > 0 && <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700" style={{ fontFamily: 'var(--font-inter)' }}>📐 {p.sqm} sqm</span>}
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700" style={{ fontFamily: 'var(--font-inter)' }}>✅ Verified</span>
+            {p.bedrooms > 0 && <span className="spec-chip" style={{ fontFamily: 'var(--font-inter)' }}>🛏 {p.bedrooms} Beds</span>}
+            {p.bathrooms > 0 && <span className="spec-chip" style={{ fontFamily: 'var(--font-inter)' }}>🚿 {p.bathrooms} Baths</span>}
+            {p.sqm > 0 && <span className="spec-chip" style={{ fontFamily: 'var(--font-inter)' }}>📐 {p.sqm} sqm</span>}
+            <span className="spec-chip" style={{ fontFamily: 'var(--font-inter)' }}>✅ Verified</span>
           </div>
           <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
             <div className="flex items-center gap-1.5">
@@ -97,10 +97,7 @@ function StaticPropertyCard({ p }: { p: StaticProperty }) {
   const badge = StaticBadgeStyle(p.status);
   return (
     <Link href="/properties" className="block group">
-      <div
-        className="bg-white rounded-[20px] overflow-hidden transition-transform duration-300 group-hover:-translate-y-1.5"
-        style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.07)' }}
-      >
+      <div className="bg-white rounded-[20px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.07)] transition-[transform,box-shadow] duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
         <div
           className="relative w-full h-[210px]"
           style={{
@@ -110,16 +107,19 @@ function StaticPropertyCard({ p }: { p: StaticProperty }) {
           }}
         >
           <div className="absolute top-3 left-3 right-3 flex justify-between items-center">
-            <span className="text-[10px] font-bold px-2.5 py-1 rounded-full"
-              style={{ fontFamily: 'var(--font-poppins)', background: badge.bg, color: badge.color }}>
-              {p.status}
-            </span>
-            {p.featured && (
-              <span className="text-[9px] font-extrabold px-2.5 py-1 rounded-full"
-                style={{ fontFamily: 'var(--font-poppins)', background: 'rgba(255,183,3,0.95)', color: '#111' }}>
-                ⭐ FEATURED
+            <div className="flex flex-col gap-1">
+              <span className="text-[10px] font-bold px-2.5 py-1 rounded-full"
+                style={{ fontFamily: 'var(--font-poppins)', background: badge.bg, color: badge.color }}>
+                {p.status}
               </span>
-            )}
+              {p.featured && (
+                <span className="text-[9px] font-extrabold px-2.5 py-1 rounded-full self-start"
+                  style={{ fontFamily: 'var(--font-poppins)', background: 'rgba(255,183,3,0.95)', color: '#111' }}>
+                  ⭐ FEATURED
+                </span>
+              )}
+            </div>
+            <button className="prop-fav" aria-label="Save property">❤️</button>
           </div>
         </div>
         <div className="p-4">
@@ -134,10 +134,10 @@ function StaticPropertyCard({ p }: { p: StaticProperty }) {
             {p.location}
           </div>
           <div className="flex gap-1.5 mt-2.5 flex-wrap">
-            {p.beds > 0 && <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700" style={{ fontFamily: 'var(--font-inter)' }}>🛏 {p.beds} Beds</span>}
-            {p.baths > 0 && <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700" style={{ fontFamily: 'var(--font-inter)' }}>🚿 {p.baths} Baths</span>}
-            {p.sqm > 0 && <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700" style={{ fontFamily: 'var(--font-inter)' }}>📐 {p.sqm} sqm</span>}
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-700" style={{ fontFamily: 'var(--font-inter)' }}>✅ Verified</span>
+            {p.beds > 0 && <span className="spec-chip" style={{ fontFamily: 'var(--font-inter)' }}>🛏 {p.beds} Beds</span>}
+            {p.baths > 0 && <span className="spec-chip" style={{ fontFamily: 'var(--font-inter)' }}>🚿 {p.baths} Baths</span>}
+            {p.sqm > 0 && <span className="spec-chip" style={{ fontFamily: 'var(--font-inter)' }}>📐 {p.sqm} sqm</span>}
+            <span className="spec-chip" style={{ fontFamily: 'var(--font-inter)' }}>✅ Verified</span>
           </div>
           <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
             <div className="flex items-center gap-1.5">
@@ -179,7 +179,7 @@ export default async function FeaturedProperties() {
     <section id="listings" className="py-20 px-4 lg:px-[60px] bg-white">
       <div>
         <div className="text-center mb-14">
-          <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '10px' }}>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '12px' }}>
             Premium Selection
           </div>
           <h2 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 'clamp(28px,4vw,36px)', color: 'var(--dark-text)', lineHeight: 1.2, marginBottom: '12px' }}>
@@ -197,7 +197,7 @@ export default async function FeaturedProperties() {
           }
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-10">
           <Link
             href="/properties"
             className="inline-block font-bold text-[15px] px-10 py-4 rounded-full text-white transition-transform hover:-translate-y-0.5"

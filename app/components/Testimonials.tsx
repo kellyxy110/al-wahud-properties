@@ -6,7 +6,7 @@ export default function Testimonials() {
       <div>
         {/* Header */}
         <div className="text-center mb-14">
-          <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '10px' }}>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '12px' }}>
             Client Stories
           </div>
           <h2 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 'clamp(28px,4vw,36px)', color: 'var(--dark-text)', lineHeight: 1.2, marginBottom: '12px' }}>
@@ -21,7 +21,7 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {TESTIMONIALS.map((t) => (
             <div key={t.name} className="bg-white rounded-[20px] p-7" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.06)' }}>
-              <div style={{ color: 'var(--gold)', fontSize: '16px', marginBottom: '14px' }}>★★★★★</div>
+              <div style={{ color: 'var(--gold)', fontSize: '14px', marginBottom: '14px' }}>★★★★★</div>
               <p style={{ fontFamily: 'var(--font-inter)', fontSize: '14px', color: '#374151', lineHeight: 1.75, marginBottom: '20px', fontStyle: 'italic' }}>
                 &ldquo;{t.quote}&rdquo;
               </p>
