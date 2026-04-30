@@ -16,6 +16,11 @@ export interface Property {
   img: string;
   gradient: string;
   featured?: boolean;
+  agentName?: string;
+  agentInitials?: string;
+  agentGradient?: string;
+  agentBorderColor?: string;
+  agentRating?: number;
 }
 
 export interface Service {
@@ -53,18 +58,22 @@ export const FEATURED_PROPERTIES: Property[] = [
     title: 'Classical Lagos House',
     price: '₦120,000,000',
     period: '/yr',
-    location: 'No. 9 Ikeja GRA, Lagos',
+    location: 'No. 9 Along Ikeja GRA, Lagos',
     status: 'FOR RENT',
     statusColor: '#E63946',
     beds: 3, baths: 3, sqm: 250,
     img: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&h=420&fit=crop',
     gradient: 'linear-gradient(135deg,#2D7A76,#0F5E36)',
     featured: true,
+    agentName: 'Aman Dhingra',
+    agentInitials: 'AD',
+    agentGradient: 'linear-gradient(135deg,#FFB703,#E63946)',
+    agentRating: 4.0,
   },
   {
     id: 2,
     title: 'Luxury Penthouse',
-    price: '₦450,000,000',
+    price: '₦350,000,000',
     period: '',
     location: 'Lekki Phase 1, Lagos State',
     status: 'FOR SALE',
@@ -72,18 +81,27 @@ export const FEATURED_PROPERTIES: Property[] = [
     beds: 5, baths: 5, sqm: 420,
     img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=420&fit=crop',
     gradient: 'linear-gradient(135deg,#FFB703,#E63946)',
+    agentName: 'Al-Wajud Team',
+    agentInitials: 'AW',
+    agentGradient: 'linear-gradient(135deg,#1B9954,#0F5E36)',
+    agentBorderColor: '#FFB703',
+    agentRating: 5.0,
   },
   {
     id: 3,
     title: 'Modern Duplex',
     price: '₦85,000,000',
     period: '/yr',
-    location: 'Victoria Island, Lagos',
+    location: 'Victoria Island, Lagos State',
     status: 'FOR RENT',
     statusColor: '#E63946',
     beds: 4, baths: 4, sqm: 310,
     img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=420&fit=crop',
     gradient: 'linear-gradient(135deg,#2D7A76,#FFB703)',
+    agentName: 'Aman Dhingra',
+    agentInitials: 'AD',
+    agentGradient: 'linear-gradient(135deg,#FFB703,#1B9954)',
+    agentRating: 4.2,
   },
   {
     id: 4,
@@ -152,28 +170,28 @@ export const SERVICES: Service[] = [
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    quote: "Al-Wajud found me the perfect duplex in Lekki in under two weeks. The title was clean, the team was professional, and I felt genuinely looked after throughout the whole process.",
-    name: 'Chukwuemeka Obi',
-    role: 'Property Buyer · Lagos',
-    initials: 'CO',
+    quote: "Al-Wajud Properties found us the perfect family home in Ikeja within 3 weeks. The process was seamless and totally transparent. Highly recommend!",
+    name: 'Adebayo Adeyemi',
+    role: 'Family Home Buyer · Lagos',
+    initials: 'AA',
     rating: 5,
     gradient: 'linear-gradient(135deg,#1B9954,#2D7A76)',
   },
   {
-    quote: "As a UK-based Nigerian, I was nervous about buying property remotely. Al-Wajud handled everything end to end — from title search to key handover. Absolutely trusted them 100%.",
-    name: 'Adaeze Nwosu',
+    quote: "As a diaspora investor, I was nervous about buying property in Nigeria remotely. Al-Wajud's team guided me every step. My apartment in Lekki is perfect!",
+    name: 'Chidi Nwosu',
     role: 'Diaspora Investor · UK',
-    initials: 'AN',
+    initials: 'CN',
     rating: 5,
-    gradient: 'linear-gradient(135deg,#FFB703,#E63946)',
+    gradient: 'linear-gradient(135deg,#E63946,#FF6B9D)',
   },
   {
-    quote: "Their valuation service was thorough and accepted by my mortgage provider first time. Saved me weeks of back-and-forth. The team really knows Nigerian property law inside out.",
-    name: 'Babatunde Adeleke',
-    role: 'Mortgage Client · Abuja',
-    initials: 'BA',
+    quote: "Exceptional service! They valued my property accurately and found a buyer at full asking price within 6 weeks. Professional team with great integrity.",
+    name: 'Fatimah Okonkwo',
+    role: 'Property Seller · Abuja',
+    initials: 'FO',
     rating: 5,
-    gradient: 'linear-gradient(135deg,#7C3AED,#2D7A76)',
+    gradient: 'linear-gradient(135deg,#FFB703,#E63946)',
   },
 ];
 

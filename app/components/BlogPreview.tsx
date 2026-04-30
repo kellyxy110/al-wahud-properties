@@ -69,7 +69,7 @@ function StaticBlogCard({ post }: { post: StaticBlogPost }) {
         <div
           className="w-full h-[180px]"
           style={{
-            backgroundImage: post.img ? `url(${post.img}), ${post.gradient}` : post.gradient,
+            backgroundImage: post.img ? `url(${post.img})` : post.gradient,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

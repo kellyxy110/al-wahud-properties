@@ -93,8 +93,25 @@ function StaticBadgeStyle(status: StaticProperty['status']): { bg: string; color
   }
 }
 
+function renderStars(rating: number) {
+  const full = Math.floor(rating);
+  const hasPartial = rating < 5;
+  return (
+    <>
+      <span style={{ color: 'var(--gold)' }}>{'★'.repeat(full)}</span>
+      {hasPartial && <span style={{ color: '#D1D5DB' }}>★</span>}
+      <span style={{ color: 'var(--gold)' }}> {rating.toFixed(1)}</span>
+    </>
+  );
+}
+
 function StaticPropertyCard({ p }: { p: StaticProperty }) {
   const badge = StaticBadgeStyle(p.status);
+  const agentGradient = p.agentGradient ?? 'linear-gradient(135deg,#FFB703,#E63946)';
+  const agentInitials = p.agentInitials ?? 'AW';
+  const agentName = p.agentName ?? 'Al-Wajud Team';
+  const agentRating = p.agentRating ?? 5.0;
+
   return (
     <Link href="/properties" className="block group">
       <div className="bg-white rounded-[20px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.07)] transition-[transform,box-shadow] duration-300 group-hover:-translate-y-1.5 group-hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
@@ -142,10 +159,15 @@ function StaticPropertyCard({ p }: { p: StaticProperty }) {
           <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
             <div className="flex items-center gap-1.5">
               <div className="w-[26px] h-[26px] rounded-full flex items-center justify-center text-[10px] font-bold text-white"
-                style={{ background: 'linear-gradient(135deg,#FFB703,#E63946)' }}>AW</div>
+                style={{
+                  background: agentGradient,
+                  border: p.agentBorderColor ? `2px solid ${p.agentBorderColor}` : undefined,
+                }}>
+                {agentInitials}
+              </div>
               <div>
-                <div style={{ fontFamily: 'var(--font-inter)', fontSize: '10px', fontWeight: 600, color: '#374151' }}>Al-Wajud Team</div>
-                <div style={{ color: 'var(--gold)', fontSize: '10px' }}>★★★★★</div>
+                <div style={{ fontFamily: 'var(--font-inter)', fontSize: '10px', fontWeight: 600, color: '#374151' }}>{agentName}</div>
+                <div style={{ fontSize: '10px' }}>{renderStars(agentRating)}</div>
               </div>
             </div>
             <span className="text-[10px] font-bold text-white px-3.5 py-1.5 rounded-full"
@@ -193,7 +215,7 @@ export default async function FeaturedProperties() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {hasSupabaseData
             ? (properties as Property[]).map(p => <PropertyCard key={p.id} p={p} />)
-            : FEATURED_PROPERTIES.map(p => <StaticPropertyCard key={p.id} p={p} />)
+            : FEATURED_PROPERTIES.slice(0, 3).map(p => <StaticPropertyCard key={p.id} p={p} />)
           }
         </div>
 
