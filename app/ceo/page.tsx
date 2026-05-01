@@ -89,10 +89,21 @@ export default function CeoPage() {
       </div>
 
       {/* ── Mobile Banner ── */}
-      <div className="lg:hidden" style={{ background: 'linear-gradient(135deg,#2D7A76,#0F5E36)', padding: '24px 16px 32px' }}>
-        <p style={{ fontFamily: 'var(--font-inter)', fontSize: 10, color: 'rgba(255,255,255,.7)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 6 }}>Leadership</p>
-        <h1 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 900, fontSize: 24, color: '#fff', marginBottom: 8 }}>Meet the CEO</h1>
-        <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: 'rgba(255,255,255,.8)' }}>Founder &amp; Chief Executive of Al-Wajud Properties</p>
+      <style>{`@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}`}</style>
+      <div className="lg:hidden" style={{ background: 'linear-gradient(160deg,#0F5E36,#2D7A76)', padding: '36px 16px 56px', textAlign: 'center' }}>
+        <div style={{ width: 120, height: 120, borderRadius: '50%', overflow: 'hidden', margin: '0 auto 14px', border: '4px solid rgba(255,255,255,.5)', boxShadow: '0 12px 40px rgba(0,0,0,.25)', animation: 'float 3.5s ease-in-out infinite' }}>
+          <Image src="/images/profileimage.jpeg" alt="Alhaji Sheu Olamide Isiaq" width={120} height={120} style={{ objectFit: 'cover', objectPosition: 'top', width: '100%', height: '100%' }} />
+        </div>
+        <p style={{ fontFamily: 'var(--font-inter)', fontSize: 10, color: 'rgba(255,255,255,.65)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 6 }}>CEO &amp; Founder</p>
+        <h1 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 900, fontSize: 22, color: '#fff', marginBottom: 6 }}>Alhaji Sheu Olamide Isiaq</h1>
+        <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: 'rgba(255,255,255,.75)', marginBottom: 18 }}>Al-Wajud Properties Ltd. · Lagos, Nigeria</p>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+          <span style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 12, color: '#fff' }}>14+ Yrs Exp.</span>
+          <span style={{ width: 1, height: 14, background: 'rgba(255,255,255,.25)', display: 'inline-block' }} />
+          <span style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 12, color: '#fff' }}>500+ Clients</span>
+          <span style={{ width: 1, height: 14, background: 'rgba(255,255,255,.25)', display: 'inline-block' }} />
+          <span style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 12, color: '#FFB703' }}>5.0★ Rating</span>
+        </div>
       </div>
 
       {/* ── Biography (PC) ── */}
@@ -255,40 +266,120 @@ export default function CeoPage() {
       </section>
 
       {/* ── Mobile CEO ── */}
-      <div className="lg:hidden" style={{ padding: '28px 16px 120px' }}>
-        <div style={{ background: '#fff', borderRadius: 20, padding: '24px 20px', boxShadow: '0 4px 20px rgba(0,0,0,.07)', marginBottom: 16 }}>
-          <div style={{ width: 110, height: 110, borderRadius: '50%', overflow: 'hidden', margin: '0 auto 16px', border: '4px solid #1B9954', boxShadow: '0 0 0 5px rgba(27,153,84,.15)' }}>
-            <Image src="/images/profileimage.jpeg" alt="Alhaji Sheu Olamide Isiaq" width={110} height={110} style={{ objectFit: 'cover', objectPosition: 'top', width: '100%', height: '100%' }} />
-          </div>
-          <div style={{ textAlign: 'center', marginBottom: 16 }}>
-            <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, color: '#1B9954', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 6 }}>Chief Executive Officer</div>
-            <h2 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 900, fontSize: 20, color: '#111827', marginBottom: 8 }}>Alhaji Sheu Olamide Isiaq</h2>
-            <p style={{ fontFamily: 'var(--font-inter)', fontSize: 13, color: '#6B7280', lineHeight: 1.7 }}>
-              14+ years building Nigeria&apos;s most trusted real estate brand from a small Lagos office into a multi-city firm handling billions in annual transactions.
-            </p>
-          </div>
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 20 }}>
-            {['🏛️ NIESV Certified', '📋 REDAN', '🌍 Global Reach'].map(tag => (
-              <span key={tag} style={{ background: '#F0FDF4', color: '#1B9954', fontFamily: 'var(--font-inter)', fontSize: 11, fontWeight: 600, padding: '4px 10px', borderRadius: 99, border: '1px solid #D1FAE5' }}>{tag}</span>
-            ))}
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10 }}>
-            {[{ num: '500+', lbl: 'Clients' }, { num: '14+', lbl: 'Years' }, { num: '₦50B+', lbl: 'Transacted' }].map(s => (
-              <div key={s.lbl} style={{ background: '#F9FAFB', borderRadius: 12, padding: 12, textAlign: 'center', border: '1px solid #E5E7EB' }}>
-                <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 18, color: '#0F5E36' }}>{s.num}</div>
-                <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, color: '#6B7280', marginTop: 2 }}>{s.lbl}</div>
-              </div>
+      <div className="lg:hidden" style={{ padding: '0 16px 120px' }}>
+        {/* Quote card — overlaps banner */}
+        <div style={{ background: 'linear-gradient(135deg,#0F5E36,#2D7A76)', borderRadius: 20, padding: '20px 20px 20px 24px', margin: '-28px 0 14px', position: 'relative', zIndex: 10, overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,.15)' }}>
+          <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 900, fontSize: 80, color: 'rgba(255,255,255,.1)', position: 'absolute', top: -10, left: 12, lineHeight: 1 }}>&ldquo;</div>
+          <p style={{ fontFamily: 'var(--font-poppins)', fontSize: 13, fontWeight: 600, color: '#fff', lineHeight: 1.6, fontStyle: 'italic', position: 'relative', zIndex: 1, marginBottom: 8 }}>
+            &ldquo;To make property ownership accessible, profitable, and secure for every client.&rdquo;
+          </p>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 11, color: 'rgba(255,255,255,.7)', position: 'relative', zIndex: 1 }}>— Alhaji Sheu Olamide Isiaq, CEO &amp; Founder</div>
+        </div>
+
+        {/* Profile Snapshot */}
+        <div style={{ background: '#fff', borderRadius: 20, padding: '20px', boxShadow: '0 4px 16px rgba(0,0,0,.07)', marginBottom: 14 }}>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, color: '#1B9954', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 14 }}>Profile Snapshot</div>
+          {[
+            { lbl: 'Profession', val: 'CEO & Founder, Al-Wajud Properties Ltd.' },
+            { lbl: 'Marital Status', val: 'Married · 3 Daughters' },
+            { lbl: 'Education', val: 'OND Business Admin / Moshood Abiola Poly' },
+            { lbl: 'Global Clients', val: 'UK · USA · Canada · EU' },
+          ].map(item => (
+            <div key={item.lbl} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', padding: '10px 0', borderBottom: '1px solid #F3F4F6' }}>
+              <span style={{ fontFamily: 'var(--font-inter)', fontSize: 11, color: '#6B7280', flexShrink: 0, marginRight: 8 }}>{item.lbl}</span>
+              <span style={{ fontFamily: 'var(--font-poppins)', fontSize: 12, fontWeight: 600, color: '#111827', textAlign: 'right' }}>{item.val}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* About CEO */}
+        <div style={{ background: '#fff', borderRadius: 20, padding: '20px', boxShadow: '0 4px 16px rgba(0,0,0,.07)', marginBottom: 14 }}>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, color: '#1B9954', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 12 }}>About the CEO</div>
+          <p style={{ fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', lineHeight: 1.75, marginBottom: 10 }}>
+            Alhaji Sheu Olamide Isiaq is a respected businessman and real estate entrepreneur with over 14 years of experience. His journey is built on discipline, trust, and a deep understanding of the Nigerian property market.
+          </p>
+          <p style={{ fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', lineHeight: 1.75 }}>
+            He has earned a reputation for integrity and consistent results — qualities that have positioned him as a trusted name among clients locally and internationally across the UK, Canada, USA, and Europe.
+          </p>
+        </div>
+
+        {/* Global Reach */}
+        <div style={{ background: '#fff', borderRadius: 20, padding: '20px', boxShadow: '0 4px 16px rgba(0,0,0,.07)', marginBottom: 14 }}>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, color: '#1B9954', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 10 }}>Global Reach</div>
+          <p style={{ fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', lineHeight: 1.7, marginBottom: 12 }}>
+            Al-Wajud Properties serves diaspora clients worldwide, helping Nigerians abroad invest safely back home.
+          </p>
+          {['Verified property transactions for UK-based Nigerians', 'Trusted by investors in the USA, Canada & Europe', 'Fully remote buying process — no need to travel'].map(pt => (
+            <div key={pt} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, marginBottom: 8 }}>
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#1B9954', flexShrink: 0, marginTop: 4 }} />
+              <span style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#374151', lineHeight: 1.6 }}>{pt}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Expertise */}
+        <div style={{ background: '#fff', borderRadius: 20, padding: '20px', boxShadow: '0 4px 16px rgba(0,0,0,.07)', marginBottom: 14 }}>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, color: '#1B9954', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 14 }}>Areas of Expertise</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            {[
+              { label: 'Residential Sales', color: '#1B9954', bg: '#ECFDF5' },
+              { label: 'Property Investment', color: '#E63946', bg: '#FEE2E2' },
+              { label: 'Asset Management', color: '#92400E', bg: '#FEF3C7' },
+              { label: 'Diaspora Services', color: '#1D4ED8', bg: '#EFF6FF' },
+              { label: 'Legal & Documentation', color: '#6D28D9', bg: '#EDE9FE' },
+              { label: 'Commercial Property', color: '#BE185D', bg: '#FCE7F3' },
+            ].map(chip => (
+              <span key={chip.label} style={{ background: chip.bg, color: chip.color, fontFamily: 'var(--font-inter)', fontSize: 11, fontWeight: 600, padding: '5px 12px', borderRadius: 99 }}>{chip.label}</span>
             ))}
           </div>
         </div>
-        <a href="https://wa.me/2347035374592?text=Hello%20Alhaji%20Sheu%2C%20I%20found%20you%20on%20Al-Wajud%20Properties." target="_blank" rel="noopener noreferrer"
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, width: '100%', background: '#25D366', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, borderRadius: '1.5rem', padding: 16, boxShadow: '0 8px 24px rgba(37,211,102,.4)', textDecoration: 'none', marginBottom: 12 }}>
-          WhatsApp the CEO
-        </a>
+
+        {/* Community & Impact */}
+        <div style={{ background: '#fff', borderRadius: 20, padding: '20px', boxShadow: '0 4px 16px rgba(0,0,0,.07)', marginBottom: 14 }}>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, color: '#1B9954', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 14 }}>Community &amp; Impact</div>
+          {[
+            { icon: '💼', iconBg: '#ECFDF5', title: 'Youth Employment', desc: 'Empowering youth through direct job opportunities within the company and its partner network.' },
+            { icon: '🏘️', iconBg: '#FFF3CD', title: 'Social Amenities', desc: 'Supporting local communities through contributions to infrastructure development projects.' },
+            { icon: '🕌', iconBg: '#E0F2FE', title: 'Mosque Building', desc: 'Contributing to the construction and maintenance of community mosques across Lagos.' },
+            { icon: '🤲', iconBg: '#FCE7F3', title: 'Helping the Less Privileged', desc: 'Assisting vulnerable individuals and families through charitable giving and direct support.' },
+          ].map(item => (
+            <div key={item.title} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: item.iconBg, fontSize: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{item.icon}</div>
+              <div>
+                <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 13, color: '#111827', marginBottom: 4 }}>{item.title}</div>
+                <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#6B7280', lineHeight: 1.6 }}>{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Leadership Philosophy */}
+        <div style={{ background: '#fff', borderRadius: 20, padding: '20px', boxShadow: '0 4px 16px rgba(0,0,0,.07)', marginBottom: 20 }}>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, color: '#1B9954', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 14 }}>Leadership Philosophy</div>
+          {[
+            { icon: '🤝', iconBg: '#ECFDF5', title: 'Integrity First', desc: 'Every deal, every client, every day — honesty is non-negotiable. No hidden fees, no shortcuts.' },
+            { icon: '🏆', iconBg: '#FEE2E2', title: 'Excellence Always', desc: 'From the first call to final handover, every interaction must exceed client expectations.' },
+            { icon: '🌍', iconBg: '#FEF3C7', title: 'Community Impact', desc: 'Real estate is about building communities and generational wealth for Nigerians.' },
+          ].map(item => (
+            <div key={item.title} style={{ display: 'flex', gap: 12, marginBottom: 14, alignItems: 'flex-start' }}>
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: item.iconBg, fontSize: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{item.icon}</div>
+              <div>
+                <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 13, color: '#111827', marginBottom: 4 }}>{item.title}</div>
+                <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#6B7280', lineHeight: 1.6 }}>{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Buttons */}
         <Link href="/contact"
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, width: '100%', background: 'linear-gradient(135deg,#E63946,#FF6B9D)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, borderRadius: '1.5rem', padding: 16, boxShadow: '0 8px 24px rgba(230,57,70,.4)', textDecoration: 'none' }}>
-          Book Free Consultation
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, width: '100%', background: 'linear-gradient(135deg,#0F5E36,#1B9954)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, borderRadius: '1.5rem', padding: 16, boxShadow: '0 8px 24px rgba(15,94,54,.4)', textDecoration: 'none', marginBottom: 12 }}>
+          📅 Book a Meeting with the CEO
         </Link>
+        <a href="https://wa.me/2347035374592?text=Hello%20Alhaji%20Sheu%2C%20I%20found%20you%20on%20Al-Wajud%20Properties." target="_blank" rel="noopener noreferrer"
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, width: '100%', background: '#25D366', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, borderRadius: '1.5rem', padding: 16, boxShadow: '0 8px 24px rgba(37,211,102,.4)', textDecoration: 'none' }}>
+          WhatsApp the CEO Directly
+        </a>
       </div>
 
       <Footer />

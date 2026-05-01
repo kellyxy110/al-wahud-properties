@@ -106,30 +106,31 @@ export default function Hero() {
             </div>
 
             {/* Search widget */}
-            <div className="w-full max-w-[380px] p-4" style={{ background: 'rgba(255,255,255,0.95)', boxShadow: '0 8px 32px rgba(0,0,0,0.15)', borderRadius: '20px' }}>
+            <div style={{ background: 'rgba(255,255,255,0.95)', boxShadow: '0 8px 32px rgba(0,0,0,0.15)', borderRadius: '20px', padding: '16px', width: '100%', maxWidth: '380px' }}>
               <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '14px', color: 'var(--dark-text)', marginBottom: '12px' }}>
                 Quick Property Search
               </div>
-              <div className="grid grid-cols-2 gap-2 mb-2">
-                <select value={location} onChange={e => setLocation(e.target.value)} className="col-span-1 px-3 py-2.5 rounded-xl text-xs text-gray-700 bg-gray-50 outline-none" style={{ border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: '12px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '8px' }}>
+                <select value={location} onChange={e => setLocation(e.target.value)} style={{ padding: '10px 12px', borderRadius: '12px', border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: '12px', color: '#374151', background: '#F9FAFB', outline: 'none' }}>
                   <option value="">📍 Location</option>
                   {LOCATIONS.map(l => <option key={l}>{l}</option>)}
                 </select>
-                <select value={propType} onChange={e => setPropType(e.target.value)} className="col-span-1 px-3 py-2.5 rounded-xl text-xs text-gray-700 bg-gray-50 outline-none" style={{ border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: '12px' }}>
+                <select value={propType} onChange={e => setPropType(e.target.value)} style={{ padding: '10px 12px', borderRadius: '12px', border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: '12px', color: '#374151', background: '#F9FAFB', outline: 'none' }}>
                   <option value="">🏠 Property Type</option>
                   {TYPES.map(t => <option key={t}>{t}</option>)}
                 </select>
-                <select value={budget} onChange={e => setBudget(e.target.value)} className="col-span-1 px-3 py-2.5 rounded-xl text-xs text-gray-700 bg-gray-50 outline-none" style={{ border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: '12px' }}>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '8px' }}>
+                <select value={budget} onChange={e => setBudget(e.target.value)} style={{ padding: '10px 12px', borderRadius: '12px', border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: '12px', color: '#374151', background: '#F9FAFB', outline: 'none' }}>
                   <option value="">💰 Budget Range</option>
                   {BUDGETS.map(b => <option key={b}>{b}</option>)}
                 </select>
-                <select value={status} onChange={e => setStatus(e.target.value)} className="col-span-1 px-3 py-2.5 rounded-xl text-xs text-gray-700 bg-gray-50 outline-none" style={{ border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: '12px' }}>
+                <select value={status} onChange={e => setStatus(e.target.value)} style={{ padding: '10px 12px', borderRadius: '12px', border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: '12px', color: '#374151', background: '#F9FAFB', outline: 'none' }}>
                   <option value="">📋 Status</option>
                   {STATUSES.map(s => <option key={s}>{s}</option>)}
                 </select>
               </div>
-              <button onClick={handleSearch} className="w-full py-3 rounded-xl text-white text-sm font-bold transition-opacity hover:opacity-90"
-                style={{ background: 'linear-gradient(135deg,var(--accent),#FF6B9D)', fontFamily: 'var(--font-poppins)' }}>
+              <button onClick={handleSearch} style={{ width: '100%', background: 'linear-gradient(135deg,var(--accent),#FF6B9D)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '13px', border: 'none', borderRadius: '12px', padding: '12px', cursor: 'pointer' }}>
                 🔍 Search Properties
               </button>
             </div>
