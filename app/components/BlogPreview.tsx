@@ -118,9 +118,9 @@ export default async function BlogPreview() {
   const hasSupabaseData = posts && posts.length > 0;
 
   return (
-    <section className="py-20 px-4 lg:px-[60px]" style={{ background: 'var(--bg)' }}>
+    <section className="py-8 px-4 lg:py-20 lg:px-[60px] bg-[var(--bg)]">
       <div>
-        <div className="text-center mb-14">
+        <div className="text-center mb-6 lg:mb-14">
           <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '10px' }}>
             Insights &amp; News
           </div>
@@ -142,7 +142,7 @@ export default async function BlogPreview() {
           }
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-1 lg:mt-10">
           <Link
             href="/blog"
             className="inline-block font-bold rounded-full transition-transform hover:-translate-y-0.5"

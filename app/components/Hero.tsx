@@ -183,7 +183,7 @@ export default function Hero() {
               <option value="">🏠 Type</option>
               {TYPES.map(t => <option key={t}>{t}</option>)}
             </select>
-            <select value={status} onChange={e => setStatus(e.target.value)} style={{ flex: 1, padding: '10px 12px', borderRadius: '12px', border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: '12px', color: '#374151', background: '#F9FAFB', outline: 'none' }}>
+            <select value={budget} onChange={e => setBudget(e.target.value)} style={{ flex: 1, padding: '10px 12px', borderRadius: '12px', border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: '12px', color: '#374151', background: '#F9FAFB', outline: 'none' }}>
               <option value="">💰 Budget</option>
               {BUDGETS.map(b => <option key={b}>{b}</option>)}
             </select>

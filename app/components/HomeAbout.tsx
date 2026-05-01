@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function HomeAbout() {
   return (
-    <section id="about" className="py-20 px-4 lg:px-[60px]" style={{ background: '#fff' }}>
+    <section id="about" className="py-8 px-4 lg:py-20 lg:px-[60px] bg-[var(--bg)] lg:bg-white">
       <div>
         <div className="hidden lg:grid lg:grid-cols-2 gap-[72px] items-center">
           {/* Visual */}

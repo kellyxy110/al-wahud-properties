@@ -195,12 +195,12 @@ export default async function FeaturedProperties() {
     // network/config error — fall through to static fallback below
   }
 
-  const hasSupabaseData = properties && properties.length > 0;
+  const hasSupabaseData = properties && properties.length >= 3;
 
   return (
-    <section id="listings" className="py-20 px-4 lg:px-[60px] bg-white">
+    <section id="listings" className="pt-7 pb-8 px-4 lg:py-20 lg:px-[60px] bg-[var(--bg)] lg:bg-white">
       <div>
-        <div className="text-center mb-14">
+        <div className="text-center mb-6 lg:mb-14">
           <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '12px' }}>
             Premium Selection
           </div>
@@ -219,7 +219,7 @@ export default async function FeaturedProperties() {
           }
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-1 lg:mt-10">
           <Link
             href="/properties"
             className="inline-block font-bold text-[15px] px-10 py-4 rounded-full text-white transition-transform hover:-translate-y-0.5"

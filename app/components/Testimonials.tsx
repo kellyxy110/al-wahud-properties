@@ -2,10 +2,10 @@ import { TESTIMONIALS } from '@/app/lib/data';
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 px-4 lg:px-[60px] bg-white">
+    <section id="testimonials" className="py-8 px-4 lg:py-20 lg:px-[60px] bg-[var(--bg)] lg:bg-white">
       <div>
         {/* Header */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-6 lg:mb-14">
           <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '12px' }}>
             Client Stories
           </div>
