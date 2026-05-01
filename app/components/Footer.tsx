@@ -35,7 +35,11 @@ const WA_SVG = (
 
 export default function Footer() {
   return (
-    <footer style={{ background: 'var(--dark)', color: '#fff' }}>
+    <>
+    <div className="lg:hidden" style={{ textAlign: 'center', padding: '24px 16px 32px' }}>
+      <h2 style={{ fontFamily: 'var(--font-inter)', fontSize: '11px', fontWeight: 400, color: 'rgba(0,0,0,0.18)', letterSpacing: '1px' }}>Kellyxy builds it</h2>
+    </div>
+    <footer className="hidden lg:block" style={{ background: 'var(--dark)', color: '#fff' }}>
       <div className="px-4 lg:px-[60px] pt-16 pb-8">
 
         {/* Top grid: 2 cols mobile → 2fr 1fr 1fr 1fr desktop */}
@@ -146,5 +150,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }
