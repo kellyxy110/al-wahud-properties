@@ -38,32 +38,6 @@ function PropertiesSkeleton() {
   );
 }
 
-function BlogPreviewSkeleton() {
-  return (
-    <section className="py-20 px-4 lg:px-[60px]" style={{ background: 'var(--bg)' }}>
-      <div>
-        <div className="mb-14 space-y-3">
-          <div className="h-3 w-28 bg-gray-200 rounded-full animate-pulse" />
-          <div className="h-8 w-44 bg-gray-200 rounded-full animate-pulse" />
-          <div className="h-4 w-72 bg-gray-200 rounded-full animate-pulse" />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="bg-white rounded-[20px] overflow-hidden animate-pulse" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.07)' }}>
-              <div className="w-full h-[180px] bg-gray-200" />
-              <div className="p-5 space-y-2">
-                <div className="h-3 bg-gray-200 rounded w-16" />
-                <div className="h-4 bg-gray-200 rounded w-full" />
-                <div className="h-4 bg-gray-200 rounded w-4/5" />
-                <div className="h-3 bg-gray-200 rounded w-1/2 mt-2" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function HomePage() {
   return (
@@ -80,9 +54,7 @@ export default function HomePage() {
         <HomeAbout />
         <HomeCertifications />
         <Testimonials />
-        <Suspense fallback={<BlogPreviewSkeleton />}>
-          <BlogPreview />
-        </Suspense>
+        <BlogPreview />
       </main>
       <Footer />
     </>

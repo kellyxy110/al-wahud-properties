@@ -1,121 +1,25 @@
 import Link from 'next/link';
-import { createClient } from '@/app/lib/supabase/server';
-import { formatDate, type BlogPost } from '@/app/lib/supabase/types';
-import { BLOG_POSTS, type BlogPost as StaticBlogPost } from '@/app/lib/data';
+import { BLOG_POSTS } from '@/app/lib/data';
 
-function SupabaseBlogCard({ post }: { post: BlogPost }) {
-  return (
-    <Link href={`/blog/${post.slug}`} className="block group">
-      <div
-        className="bg-white rounded-[20px] overflow-hidden transition-transform duration-300 group-hover:-translate-y-1"
-        style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.07)' }}
-      >
-        <div
-          className="w-full h-[180px]"
-          style={{
-            backgroundImage: post.image ? `url(${post.image}), ${post.gradient}` : post.gradient,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        <div className="p-5">
-          <span
-            className="inline-block text-[10px] font-semibold px-2.5 py-0.5 rounded-full mb-2.5"
-            style={{ fontFamily: 'var(--font-inter)', background: '#ECFDF5', color: 'var(--primary)' }}
-          >
-            {post.category}
-          </span>
-          <h3 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '15px', color: 'var(--dark-text)', lineHeight: 1.4, marginBottom: '8px' }}>
-            {post.title}
-          </h3>
-          <p style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', color: 'var(--gray)', lineHeight: 1.6, marginBottom: '14px' }}>
-            {post.excerpt.slice(0, 110)}{post.excerpt.length > 110 ? '…' : ''}
-          </p>
-          <div className="flex items-center justify-between">
-            <span style={{ fontFamily: 'var(--font-inter)', fontSize: '11px', color: 'var(--gray)' }}>
-              {formatDate(post.created_at)} · {post.read_time}
-            </span>
-            <span className="flex items-center gap-1 font-semibold text-[12px]"
-              style={{ fontFamily: 'var(--font-poppins)', color: 'var(--primary)' }}>
-              Read
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </span>
-          </div>
-        </div>
-      </div>
-    </Link>
-  );
-}
+const PINNED_SLUGS = [
+  'nigerian-real-estate-uk-investors-2026',
+  'buying-property-nigeria-from-usa',
+  'top-locations-lagos-property-investment-2026',
+];
 
 const TAG_STYLES: Record<string, { bg: string; color: string }> = {
-  'Diaspora':      { bg: '#FCE7F3', color: '#9D174D' },
-  'Buyer Guide':   { bg: '#FEE2E2', color: '#991B1B' },
+  'Diaspora':    { bg: '#FCE7F3', color: '#9D174D' },
+  'Buyer Guide': { bg: '#FEE2E2', color: '#991B1B' },
 };
 
 function tagStyle(tag: string) {
   return TAG_STYLES[tag] ?? { bg: '#ECFDF5', color: 'var(--primary)' };
 }
 
-function StaticBlogCard({ post }: { post: StaticBlogPost }) {
-  const ts = tagStyle(post.tag);
-  return (
-    <Link href={`/blog/${post.slug}`} className="block group">
-      <div
-        className="bg-white rounded-[20px] overflow-hidden transition-transform duration-300 group-hover:-translate-y-1"
-        style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.07)' }}
-      >
-        <div
-          className="w-full h-[180px]"
-          style={{
-            backgroundImage: post.img ? `url(${post.img})` : post.gradient,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        <div className="p-5">
-          <span
-            className="inline-block text-[10px] font-semibold px-2.5 py-0.5 rounded-full mb-2.5"
-            style={{ fontFamily: 'var(--font-inter)', background: ts.bg, color: ts.color }}
-          >
-            {post.tag}
-          </span>
-          <h3 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '15px', color: 'var(--dark-text)', lineHeight: 1.4, marginBottom: '8px' }}>
-            {post.title}
-          </h3>
-          <div style={{ fontFamily: 'var(--font-inter)', fontSize: '11px', color: 'var(--gray)', marginBottom: '14px' }}>
-            {post.date} · {post.readTime}
-          </div>
-          <div className="flex items-center gap-1 font-semibold text-[12px]"
-            style={{ fontFamily: 'var(--font-poppins)', color: 'var(--primary)' }}>
-            Read Article
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </Link>
-  );
-}
-
-export default async function BlogPreview() {
-  const supabase = await createClient();
-  let posts: unknown[] | null = null;
-  try {
-    const { data } = await supabase
-      .from('blog_posts')
-      .select('*')
-      .eq('published', true)
-      .order('created_at', { ascending: false })
-      .limit(3);
-    posts = data;
-  } catch {
-    // network/config error — fall through to static fallback below
-  }
-
-  const hasSupabaseData = posts && posts.length >= 3;
+export default function BlogPreview() {
+  const posts = PINNED_SLUGS
+    .map(slug => BLOG_POSTS.find(p => p.slug === slug))
+    .filter(Boolean) as typeof BLOG_POSTS;
 
   return (
     <section className="py-8 px-4 lg:py-20 lg:px-[60px] bg-[var(--bg)]">
@@ -133,10 +37,52 @@ export default async function BlogPreview() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {hasSupabaseData
-            ? (posts as BlogPost[]).map(post => <SupabaseBlogCard key={post.id} post={post} />)
-            : BLOG_POSTS.slice(0, 3).map(post => <StaticBlogCard key={post.id} post={post} />)
-          }
+          {posts.map(post => {
+            const ts = tagStyle(post.tag);
+            return (
+              <Link key={post.id} href={`/blog/${post.slug}`} className="block group">
+                <div
+                  className="bg-white rounded-[20px] overflow-hidden transition-transform duration-300 group-hover:-translate-y-1"
+                  style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.07)' }}
+                >
+                  <div
+                    className="w-full h-[180px]"
+                    style={{
+                      backgroundImage: `url(${post.img})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                    }}
+                  />
+                  <div className="p-5">
+                    <span
+                      className="inline-block text-[10px] font-semibold px-2.5 py-0.5 rounded-full mb-2.5"
+                      style={{ fontFamily: 'var(--font-inter)', background: ts.bg, color: ts.color }}
+                    >
+                      {post.tag}
+                    </span>
+                    <h3 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: '15px', color: 'var(--dark-text)', lineHeight: 1.4, marginBottom: '8px' }}>
+                      {post.title}
+                    </h3>
+                    <p style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', color: 'var(--gray)', lineHeight: 1.6, marginBottom: '14px' }}>
+                      {post.excerpt.slice(0, 110)}{post.excerpt.length > 110 ? '…' : ''}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span style={{ fontFamily: 'var(--font-inter)', fontSize: '11px', color: 'var(--gray)' }}>
+                        {post.date} · {post.readTime}
+                      </span>
+                      <span className="flex items-center gap-1 font-semibold text-[12px]"
+                        style={{ fontFamily: 'var(--font-poppins)', color: 'var(--primary)' }}>
+                        Read
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
         <div className="text-center mt-6 lg:mt-10">
