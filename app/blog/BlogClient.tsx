@@ -63,7 +63,7 @@ export default function BlogClient() {
             <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, fontWeight: 600, color: '#1B9954', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: 10 }}>Editor&apos;s Pick</div>
             <Link href={`/blog/${featured.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
               <div style={{ background: '#fff', borderRadius: 24, overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,.08)', marginBottom: 32, cursor: 'pointer', transition: 'transform .3s' }}>
-                <div style={{ height: 320, background: featured.gradient, position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ height: 320, position: 'relative', overflow: 'hidden' }}>
                   <Image src={featured.img} alt={featured.title} fill sizes="(max-width:1280px) 100vw, 700px" style={{ objectFit: 'cover' }} />
                   <span style={{ position: 'absolute', top: 20, left: 20, background: '#E63946', color: '#fff', fontFamily: 'var(--font-poppins)', fontSize: 11, fontWeight: 700, padding: '5px 14px', borderRadius: 99 }}>{featured.tag}</span>
                 </div>
@@ -95,7 +95,7 @@ export default function BlogClient() {
             {rest.map(post => (
               <Link key={post.id} href={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
                 <div style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', boxShadow: '0 4px 16px rgba(0,0,0,.07)', cursor: 'pointer', transition: 'transform .3s' }}>
-                  <div style={{ height: 170, background: post.gradient, position: 'relative' }}>
+                  <div style={{ height: 170, position: 'relative', overflow: 'hidden' }}>
                     <Image src={post.img} alt={post.title} fill sizes="(max-width:1280px) 50vw, 300px" style={{ objectFit: 'cover' }} />
                     <span style={{ position: 'absolute', top: 12, left: 12, fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, padding: '3px 10px', borderRadius: 99, background: '#ECFDF5', color: '#1B9954' }}>{post.tag}</span>
                   </div>

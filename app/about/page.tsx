@@ -286,11 +286,15 @@ export default function AboutPage() {
 
       {/* ── Mobile Content ── */}
       <div className="lg:hidden" style={{ padding: '28px 16px 120px' }}>
+
+        {/* Story card */}
         <div style={{ background: '#fff', borderRadius: 20, padding: '24px 20px', boxShadow: '0 4px 20px rgba(0,0,0,.07)', marginBottom: 16 }}>
           <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, color: '#1B9954', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 8 }}>Our Story</div>
           <h2 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 20, color: '#111827', marginBottom: 12 }}>Nigeria&apos;s Most Trusted Property Company</h2>
           <p style={{ fontFamily: 'var(--font-inter)', fontSize: 13, color: '#6B7280', lineHeight: 1.7 }}>Founded in 2013 in Ikeja, Lagos with a vision of honest real estate. Today, we&apos;re recognised across Nigeria and the diaspora.</p>
         </div>
+
+        {/* Stats 2×2 */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 16 }}>
           {[{ num: '500+', lbl: 'Happy Clients' }, { num: '₦50B+', lbl: 'Transacted' }, { num: '14+', lbl: 'Years' }, { num: '3', lbl: 'States' }].map(s => (
             <div key={s.lbl} style={{ background: '#fff', borderRadius: 16, padding: 16, textAlign: 'center', boxShadow: '0 4px 12px rgba(0,0,0,.06)' }}>
@@ -299,9 +303,77 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
-        <Link href="/contact" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, width: '100%', background: 'linear-gradient(135deg,#E63946,#FF6B9D)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, borderRadius: '1.5rem', padding: 16, boxShadow: '0 8px 24px rgba(230,57,70,.4)', textDecoration: 'none' }}>
-          Work With Us
-        </Link>
+
+        {/* CEO section */}
+        <div style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,.07)', marginBottom: 16 }}>
+          <div style={{ height: 220, position: 'relative' }}>
+            <Image src="/images/profileimage.jpeg" alt="Alhaji Sheu Olamide Isiaq" fill style={{ objectFit: 'cover', objectPosition: 'top' }} />
+            <div style={{ position: 'absolute', bottom: 12, left: 12, background: '#FFB703', color: '#111', fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 10, padding: '4px 10px', borderRadius: 99 }}>✦ 14+ Years Experience</div>
+          </div>
+          <div style={{ padding: '16px 20px' }}>
+            <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, color: '#1B9954', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 4 }}>Chief Executive Officer</div>
+            <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 18, color: '#111827', lineHeight: 1.2, marginBottom: 10 }}>
+              Alhaji Sheu<br /><span style={{ color: '#1B9954' }}>Olamide Isiaq</span>
+            </div>
+            <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#6B7280', lineHeight: 1.7, marginBottom: 14 }}>
+              14+ years building Nigeria&apos;s most trusted real estate brand. NIESV certified · REDAN registered · serving clients from Lagos to London.
+            </p>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <Link href="/ceo" style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, background: 'linear-gradient(135deg,#1B9954,#0F5E36)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 12, padding: '11px 14px', borderRadius: 99, textDecoration: 'none' }}>
+                View Full Profile →
+              </Link>
+              <a href="https://wa.me/2347035374592?text=Hello%20Alhaji%20Sheu%2C%20I%20found%20you%20on%20Al-Wajud%20Properties." target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#25D366', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 12, padding: '11px 14px', borderRadius: 99, textDecoration: 'none' }}>
+                {WA_SVG} CEO
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Mission / Vision / Values */}
+        <div style={{ background: '#fff', borderRadius: 20, padding: '20px 18px', boxShadow: '0 4px 12px rgba(0,0,0,.06)', marginBottom: 16 }}>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, color: '#1B9954', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 6 }}>What Drives Us</div>
+          <h3 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 16, color: '#111827', marginBottom: 14 }}>Mission, Vision &amp; Values</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {[
+              { label: 'Mission', color: '#1B9954', text: 'To connect Nigerians and diaspora investors with premium verified properties through transparency and excellence.' },
+              { label: 'Vision', color: '#E63946', text: 'To be the #1 most trusted real estate brand in West Africa.' },
+              { label: 'Values', color: '#FFB703', text: 'Integrity · Transparency · Excellence · Client-First Service.' },
+            ].map(item => (
+              <div key={item.label} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                <div style={{ width: 10, height: 10, borderRadius: '50%', background: item.color, flexShrink: 0, marginTop: 4 }} />
+                <div>
+                  <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 13, color: item.color, marginBottom: 2 }}>{item.label}</div>
+                  <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#6B7280', lineHeight: 1.6 }}>{item.text}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Credentials */}
+        <div style={{ background: '#fff', borderRadius: 20, padding: '20px 18px', boxShadow: '0 4px 12px rgba(0,0,0,.06)', marginBottom: 20 }}>
+          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, color: '#1B9954', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 8 }}>Licensed &amp; Certified</div>
+          {[
+            { title: 'CAC Registered', badge: 'RC: 3395264', badgeBg: 'linear-gradient(135deg,#FFB703,#E63946)' },
+            { title: 'NIESV Member', badge: '🏅 Full Member', badgeBg: 'linear-gradient(135deg,#1B9954,#2D7A76)' },
+            { title: 'REDAN Member', badge: '🏅 Accredited', badgeBg: 'linear-gradient(135deg,#2D7A76,#0F5E36)' },
+          ].map((c, i, arr) => (
+            <div key={c.title} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: i < arr.length - 1 ? '1px solid #F3F4F6' : 'none' }}>
+              <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 600, fontSize: 13, color: '#111827' }}>{c.title}</div>
+              <div style={{ fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 700, color: '#fff', background: c.badgeBg, padding: '4px 10px', borderRadius: 99 }}>{c.badge}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA buttons */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <a href="https://wa.me/2347035374592?text=Hello%20Al-Wajud!%20I%27d%20like%20a%20free%20consultation." target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, width: '100%', background: '#25D366', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, borderRadius: '1.5rem', padding: 16, boxShadow: '0 8px 24px rgba(37,211,102,.4)', textDecoration: 'none' }}>
+            {WA_SVG} WhatsApp Us
+          </a>
+          <Link href="/contact" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, width: '100%', background: 'linear-gradient(135deg,#E63946,#FF6B9D)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, borderRadius: '1.5rem', padding: 16, boxShadow: '0 8px 24px rgba(230,57,70,.4)', textDecoration: 'none' }}>
+            Work With Us
+          </Link>
+        </div>
       </div>
 
       <Footer />

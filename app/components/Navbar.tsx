@@ -124,7 +124,7 @@ export default function Navbar() {
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.54V6.78a4.84 4.84 0 01-1.07-.09z"/></svg>
               </a>
             </div>
-            <Link href="/contact"
+            <Link href="/legal"
               className="text-white text-sm font-bold px-6 py-2.5 rounded-full transition-transform hover:-translate-y-0.5"
               style={{ fontFamily: 'var(--font-poppins)', background: 'linear-gradient(135deg,var(--primary),var(--dark))', boxShadow: '0 4px 16px rgba(27,153,84,.3)' }}>
               Get a Free Consultation

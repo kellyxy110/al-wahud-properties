@@ -48,7 +48,7 @@ export default function BlogPage() {
         {BLOG_POSTS.map(post => (
           <Link key={post.id} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', display: 'block', marginBottom: 14 }}>
           <div style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', boxShadow: '0 4px 14px rgba(0,0,0,.07)' }}>
-            <div style={{ height: 180, background: post.gradient, position: 'relative' }}>
+            <div style={{ height: 180, position: 'relative', overflow: 'hidden' }}>
               <Image src={post.img} alt={post.title} fill sizes="100vw" style={{ objectFit: 'cover' }} />
               <span style={{ position: 'absolute', top: 10, left: 10, background: '#ECFDF5', color: '#1B9954', fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, padding: '3px 10px', borderRadius: 99 }}>{post.tag}</span>
             </div>

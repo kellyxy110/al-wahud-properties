@@ -135,10 +135,7 @@ export default async function BlogPreview() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {hasSupabaseData
             ? (posts as BlogPost[]).map(post => <SupabaseBlogCard key={post.id} post={post} />)
-            : (['lagos-real-estate-market-forecast-2026', 'buying-property-nigeria-from-usa', 'red-flags-buying-property-nigeria'] as const)
-                .map(slug => BLOG_POSTS.find(p => p.slug === slug)!)
-                .filter(Boolean)
-                .map(post => <StaticBlogCard key={post.id} post={post} />)
+            : BLOG_POSTS.slice(0, 3).map(post => <StaticBlogCard key={post.id} post={post} />)
           }
         </div>
 
