@@ -73,9 +73,9 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="text-center mt-1 lg:mt-10">
+        <div className="text-center mt-6 lg:mt-10">
           <Link href="/services"
-            className="inline-block font-bold text-sm px-8 py-4 rounded-full transition-all hover:-translate-y-0.5"
+            className="inline-block font-bold text-[15px] px-9 py-4 rounded-full transition-all hover:-translate-y-0.5"
             style={{ fontFamily: 'var(--font-poppins)', background: 'linear-gradient(135deg,var(--accent),#FF6B9D)', color: '#fff', boxShadow: '0 8px 24px rgba(230,57,70,.4)' }}>
             Explore All Services →
           </Link>

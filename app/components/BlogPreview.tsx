@@ -115,7 +115,7 @@ export default async function BlogPreview() {
     // network/config error — fall through to static fallback below
   }
 
-  const hasSupabaseData = posts && posts.length > 0;
+  const hasSupabaseData = posts && posts.length >= 3;
 
   return (
     <section className="py-8 px-4 lg:py-20 lg:px-[60px] bg-[var(--bg)]">
@@ -139,7 +139,7 @@ export default async function BlogPreview() {
           }
         </div>
 
-        <div className="text-center mt-1 lg:mt-10">
+        <div className="text-center mt-6 lg:mt-10">
           <Link
             href="/blog"
             className="inline-block font-bold rounded-full transition-transform hover:-translate-y-0.5"

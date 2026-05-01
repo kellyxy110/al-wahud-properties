@@ -144,6 +144,9 @@ export default function Footer() {
           <p style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>
             © {new Date().getFullYear()} Al-Wajud Properties. All rights reserved.
           </p>
+          <p style={{ fontFamily: 'var(--font-inter)', fontSize: '11px', color: 'rgba(255,255,255,0.18)', letterSpacing: '0.5px' }}>
+            Kellyxy builds it
+          </p>
           <p style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>
             Built with ❤️ for Nigerian Real Estate
           </p>

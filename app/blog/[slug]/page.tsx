@@ -68,13 +68,11 @@ export default async function BlogPostPage(
 
       {/* ── Mobile Hero ── */}
       <div
-        className="lg:hidden"
+        className="lg:hidden flex items-end"
         style={{
           height: 240,
           background: post.img ? `url(${post.img}) center/cover` : post.gradient,
           position: 'relative',
-          display: 'flex',
-          alignItems: 'flex-end',
         }}
       >
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.15) 100%)' }} />
@@ -138,7 +136,7 @@ export default async function BlogPostPage(
             <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, color: '#111827', marginBottom: 16, paddingBottom: 12, borderBottom: '1px solid #F3F4F6' }}>Related Articles</div>
             {related.map((rp) => (
               <Link key={rp.id} href={`/blog/${rp.slug}`} style={{ textDecoration: 'none', display: 'flex', gap: 12, marginBottom: 14, paddingBottom: 14, borderBottom: '1px solid #F9FAFB' }}>
-                <div style={{ width: 60, height: 60, borderRadius: 12, background: rp.gradient, flexShrink: 0, overflow: 'hidden', position: 'relative' }}>
+                <div style={{ width: 60, height: 60, borderRadius: 12, flexShrink: 0, overflow: 'hidden', position: 'relative' }}>
                   <Image src={rp.img} alt="" fill sizes="60px" style={{ objectFit: 'cover' }} />
                 </div>
                 <div>
@@ -211,7 +209,7 @@ export default async function BlogPostPage(
         <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, color: '#111827', marginBottom: 14 }}>More Articles</div>
         {related.map((rp) => (
           <Link key={rp.id} href={`/blog/${rp.slug}`} style={{ textDecoration: 'none', display: 'flex', gap: 12, background: '#fff', borderRadius: 16, padding: 14, boxShadow: '0 2px 12px rgba(0,0,0,.06)', marginBottom: 10 }}>
-            <div style={{ width: 56, height: 56, borderRadius: 12, background: rp.gradient, flexShrink: 0, overflow: 'hidden', position: 'relative' }}>
+            <div style={{ width: 56, height: 56, borderRadius: 12, flexShrink: 0, overflow: 'hidden', position: 'relative' }}>
               <Image src={rp.img} alt="" fill sizes="56px" style={{ objectFit: 'cover' }} />
             </div>
             <div>

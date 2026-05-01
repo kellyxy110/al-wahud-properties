@@ -37,7 +37,7 @@ export default async function PropertiesPage() {
           <PropertiesClient initialProperties={properties} />
         )}
       </main>
-      <div className="hidden lg:block"><Footer /></div>
+      <Footer />
     </>
   );
 }

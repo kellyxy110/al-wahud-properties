@@ -84,7 +84,7 @@ export default function HomePage() {
           <BlogPreview />
         </Suspense>
       </main>
-      <div className="hidden lg:block"><Footer /></div>
+      <Footer />
     </>
   );
 }
