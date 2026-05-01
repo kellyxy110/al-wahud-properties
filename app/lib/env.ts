@@ -11,12 +11,13 @@ interface EnvSpec {
 
 const ENV_SPECS: EnvSpec[] = [
   // Core Supabase — app is non-functional without these
-  { key: 'NEXT_PUBLIC_SUPABASE_URL',  value: process.env.NEXT_PUBLIC_SUPABASE_URL,  required: true },
+  { key: 'NEXT_PUBLIC_SUPABASE_URL',      value: process.env.NEXT_PUBLIC_SUPABASE_URL,      required: true },
   { key: 'NEXT_PUBLIC_SUPABASE_ANON_KEY', value: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY, required: true },
-  // Admin Basic Auth — /admin routes are unprotected without this
-  { key: 'ADMIN_PASSWORD',            value: process.env.ADMIN_PASSWORD,            required: true },
+  // Admin login credentials — /admin routes are accessible to anyone without these
+  { key: 'ADMIN_USERNAME',               value: process.env.ADMIN_USERNAME,                required: true },
+  { key: 'ADMIN_PASSWORD',               value: process.env.ADMIN_PASSWORD,                required: true },
   // Admin Supabase operations — add-property form won't work without this
-  { key: 'SUPABASE_SERVICE_ROLE_KEY', value: process.env.SUPABASE_SERVICE_ROLE_KEY, required: false },
+  { key: 'SUPABASE_SERVICE_ROLE_KEY',    value: process.env.SUPABASE_SERVICE_ROLE_KEY,     required: false },
 ];
 
 export function validateEnv(): void {

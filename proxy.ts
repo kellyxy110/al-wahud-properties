@@ -1,38 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export function proxy(req: NextRequest) {
-  const adminPassword = process.env.ADMIN_PASSWORD;
+const COOKIE = 'aw_admin_token';
 
-  // Fail-safe: if the env var is missing, block access entirely.
-  if (!adminPassword) {
-    return new NextResponse('Admin access is not configured.', { status: 503 });
+async function makeToken(u: string, p: string): Promise<string> {
+  const buf = await crypto.subtle.digest(
+    'SHA-256',
+    new TextEncoder().encode(`${u}:${p}:aw_admin_2026`),
+  );
+  return Array.from(new Uint8Array(buf))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
+}
+
+export async function proxy(req: NextRequest) {
+  const path = req.nextUrl.pathname;
+
+  // Login page is always public — never block it (avoids redirect loop)
+  if (path === '/admin/login') return NextResponse.next();
+
+  const token    = req.cookies.get(COOKIE)?.value ?? '';
+  const expected = await makeToken(
+    process.env.ADMIN_USERNAME ?? '',
+    process.env.ADMIN_PASSWORD ?? '',
+  );
+
+  if (token !== expected) {
+    const url = req.nextUrl.clone();
+    url.pathname = '/admin/login';
+    url.searchParams.set('from', path);
+    return NextResponse.redirect(url);
   }
 
-  const authHeader = req.headers.get('authorization') ?? '';
-
-  if (authHeader.startsWith('Basic ')) {
-    const base64 = authHeader.slice(6);
-    try {
-      const decoded = atob(base64);           // "username:password"
-      const colonIdx = decoded.indexOf(':');
-      if (colonIdx !== -1) {
-        const password = decoded.slice(colonIdx + 1);
-        if (password === adminPassword) {
-          return NextResponse.next();
-        }
-      }
-    } catch {
-      // malformed base64 — fall through to 401
-    }
-  }
-
-  // No valid credentials — challenge the browser to show its native login dialog.
-  return new NextResponse('Unauthorized', {
-    status: 401,
-    headers: {
-      'WWW-Authenticate': 'Basic realm="Al-Wajud Admin", charset="UTF-8"',
-    },
-  });
+  return NextResponse.next();
 }
 
 export const config = {
