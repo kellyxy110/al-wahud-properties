@@ -22,6 +22,17 @@ export async function generateMetadata(
   };
 }
 
+const CATEGORY_COUNTS = [
+  { lbl: 'Market Insights', tag: 'Market Insights' },
+  { lbl: 'Investment Tips', tag: 'Investment' },
+  { lbl: 'Buyer Guides',   tag: 'Buyer Guide' },
+  { lbl: 'Legal & Finance', tag: 'Legal Guide' },
+  { lbl: 'Diaspora Buyers', tag: 'Diaspora' },
+  { lbl: 'Landlord Advice', tag: 'Landlord' },
+].map(c => ({ ...c, cnt: BLOG_POSTS.filter(p => p.tag === c.tag).length }));
+
+const POPULAR_TAGS = ['Lagos', 'Abuja', 'Investment', 'Rental', 'Diaspora', 'C of O', 'Duplex', 'Land', 'Mortgage', 'Lekki'];
+
 export default async function BlogPostPage(
   { params }: { params: Promise<{ slug: string }> }
 ) {
@@ -29,7 +40,13 @@ export default async function BlogPostPage(
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) notFound();
 
-  const related = BLOG_POSTS.filter((p) => p.slug !== slug);
+  // Same-tag posts first, then others — max 4 for the related grid
+  const sameTag = BLOG_POSTS.filter(p => p.slug !== slug && p.tag === post.tag);
+  const others  = BLOG_POSTS.filter(p => p.slug !== slug && p.tag !== post.tag);
+  const related = [...sameTag, ...others].slice(0, 4);
+
+  // Recent posts for sidebar (exclude current)
+  const recentPosts = BLOG_POSTS.filter(p => p.slug !== slug).slice(0, 5);
 
   return (
     <>
@@ -85,8 +102,10 @@ export default async function BlogPostPage(
 
       {/* ── PC Layout: Article + Sidebar ── */}
       <div className="hidden lg:grid" style={{ gridTemplateColumns: '1fr 320px', gap: 40, padding: '60px 60px 80px', alignItems: 'start', maxWidth: 1400, margin: '0 auto' }}>
-        {/* Article */}
+
+        {/* ── Main column: article → CTA → tags → related ── */}
         <article>
+          {/* Article body */}
           <div
             style={{ background: '#fff', borderRadius: 20, padding: '40px 48px', boxShadow: '0 4px 20px rgba(0,0,0,.06)', fontFamily: 'var(--font-inter)', fontSize: 15, color: '#374151', lineHeight: 1.9 }}
             dangerouslySetInnerHTML={{ __html: post.content }}
@@ -108,34 +127,63 @@ export default async function BlogPostPage(
           </div>
 
           {/* Tags */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 8 }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 40 }}>
             {[post.tag, 'Nigeria', 'Lagos', 'Real Estate'].map((t) => (
               <span key={t} style={{ background: '#F3F4F6', color: '#374151', fontFamily: 'var(--font-inter)', fontSize: 12, fontWeight: 500, padding: '6px 14px', borderRadius: 99 }}>{t}</span>
             ))}
           </div>
+
+          {/* Related Articles — below the post */}
+          {related.length > 0 && (
+            <>
+              <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, fontWeight: 600, color: '#1B9954', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: 8 }}>Continue Reading</div>
+              <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 24, color: '#111827', marginBottom: 20 }}>Related Articles</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+                {related.map(rp => (
+                  <Link key={rp.id} href={`/blog/${rp.slug}`} style={{ textDecoration: 'none' }}>
+                    <div style={{ background: '#fff', borderRadius: 20, overflow: 'hidden', boxShadow: '0 4px 16px rgba(0,0,0,.07)', transition: 'transform .3s' }}>
+                      <div style={{ height: 170, position: 'relative', overflow: 'hidden' }}>
+                        <Image src={rp.img} alt={rp.title} fill sizes="(max-width:1280px) 50vw, 340px" style={{ objectFit: 'cover' }} />
+                        <span style={{ position: 'absolute', top: 12, left: 12, fontFamily: 'var(--font-inter)', fontSize: 10, fontWeight: 600, padding: '3px 10px', borderRadius: 99, background: '#ECFDF5', color: '#1B9954' }}>{rp.tag}</span>
+                      </div>
+                      <div style={{ padding: 18 }}>
+                        <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 14, color: '#111827', lineHeight: 1.4, marginBottom: 8 }}>{rp.title}</div>
+                        <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#6B7280', lineHeight: 1.6, marginBottom: 10 }}>{rp.excerpt.slice(0, 90)}…</div>
+                        <div style={{ fontFamily: 'var(--font-inter)', fontSize: 11, color: '#6B7280', display: 'flex', justifyContent: 'space-between' }}>
+                          <span>{rp.date} · {rp.readTime}</span>
+                          <span style={{ fontFamily: 'var(--font-poppins)', fontSize: 11, fontWeight: 700, color: '#1B9954' }}>Read →</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </>
+          )}
         </article>
 
-        {/* Sidebar */}
+        {/* ── Sidebar — matches /blog listing sidebar exactly ── */}
         <aside>
-          {/* Author card */}
+          {/* Categories */}
           <div style={{ background: '#fff', borderRadius: 20, padding: 24, boxShadow: '0 4px 16px rgba(0,0,0,.06)', marginBottom: 20 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
-              <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'linear-gradient(135deg,#1B9954,#2D7A76)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-poppins)', fontSize: 14, fontWeight: 700, color: '#fff', flexShrink: 0 }}>AW</div>
-              <div>
-                <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 14, color: '#111827' }}>Al-Wajud Properties</div>
-                <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#6B7280' }}>NIESV Certified Real Estate Experts</div>
-              </div>
-            </div>
-            <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#6B7280', lineHeight: 1.7 }}>
-              Nigeria&apos;s trusted property advisers — 14+ years connecting buyers, sellers and investors with verified opportunities.
-            </p>
+            <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, color: '#111827', marginBottom: 16, paddingBottom: 12, borderBottom: '1px solid #F3F4F6' }}>Categories</div>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {CATEGORY_COUNTS.map(c => (
+                <li key={c.lbl}>
+                  <Link href="/blog" style={{ textDecoration: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', padding: '8px 0', borderBottom: '1px solid #F9FAFB' }}>
+                    {c.lbl}
+                    <span style={{ background: '#F3F4F6', color: '#6B7280', fontSize: 11, fontWeight: 600, padding: '2px 8px', borderRadius: 99 }}>{c.cnt}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Related posts */}
+          {/* Recent Posts */}
           <div style={{ background: '#fff', borderRadius: 20, padding: 24, boxShadow: '0 4px 16px rgba(0,0,0,.06)', marginBottom: 20 }}>
-            <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, color: '#111827', marginBottom: 16, paddingBottom: 12, borderBottom: '1px solid #F3F4F6' }}>Related Articles</div>
-            {related.map((rp) => (
-              <Link key={rp.id} href={`/blog/${rp.slug}`} style={{ textDecoration: 'none', display: 'flex', gap: 12, marginBottom: 14, paddingBottom: 14, borderBottom: '1px solid #F9FAFB' }}>
+            <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, color: '#111827', marginBottom: 16, paddingBottom: 12, borderBottom: '1px solid #F3F4F6' }}>Recent Posts</div>
+            {recentPosts.map(rp => (
+              <Link key={rp.id} href={`/blog/${rp.slug}`} style={{ textDecoration: 'none', display: 'flex', gap: 12, marginBottom: 14, cursor: 'pointer', paddingBottom: 14, borderBottom: '1px solid #F9FAFB' }}>
                 <div style={{ width: 60, height: 60, borderRadius: 12, flexShrink: 0, overflow: 'hidden', position: 'relative' }}>
                   <Image src={rp.img} alt="" fill sizes="60px" style={{ objectFit: 'cover' }} />
                 </div>
@@ -147,19 +195,12 @@ export default async function BlogPostPage(
             ))}
           </div>
 
-          {/* Share */}
+          {/* Popular Tags */}
           <div style={{ background: '#fff', borderRadius: 20, padding: 24, boxShadow: '0 4px 16px rgba(0,0,0,.06)', marginBottom: 20 }}>
-            <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, color: '#111827', marginBottom: 14 }}>Share This Article</div>
-            <div style={{ display: 'flex', gap: 10 }}>
-              {[
-                { label: 'WhatsApp', bg: '#25D366', href: `https://wa.me/?text=${encodeURIComponent(post.title + ' — Al-Wajud Properties')}` },
-                { label: 'Twitter/X', bg: '#000', href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}` },
-                { label: 'LinkedIn', bg: '#0A66C2', href: `https://www.linkedin.com/sharing/share-offsite/?url=https://alwajudproperties.com/blog/${post.slug}` },
-              ].map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                  style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: s.bg, color: '#fff', fontFamily: 'var(--font-poppins)', fontSize: 11, fontWeight: 700, borderRadius: 12, padding: '10px 0', textDecoration: 'none' }}>
-                  {s.label}
-                </a>
+            <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, color: '#111827', marginBottom: 16, paddingBottom: 12, borderBottom: '1px solid #F3F4F6' }}>Popular Tags</div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              {POPULAR_TAGS.map(tag => (
+                <span key={tag} style={{ background: '#F3F4F6', color: '#374151', fontFamily: 'var(--font-inter)', fontSize: 11, fontWeight: 500, padding: '5px 12px', borderRadius: 99, cursor: 'pointer' }}>{tag}</span>
               ))}
             </div>
           </div>
@@ -168,7 +209,7 @@ export default async function BlogPostPage(
           <div style={{ background: 'linear-gradient(135deg,#0F5E36,#2D7A76)', borderRadius: 20, padding: 24 }}>
             <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, color: '#fff', marginBottom: 10 }}>📬 Newsletter</div>
             <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: 'rgba(255,255,255,.8)', marginBottom: 16, lineHeight: 1.6 }}>
-              Get weekly market updates and exclusive property deals.
+              Get weekly market updates and exclusive property deals delivered to your inbox.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               <input type="email" placeholder="Your email address" style={{ padding: '10px 14px', borderRadius: 12, border: '1.5px solid #4B8B5E', fontFamily: 'var(--font-inter)', fontSize: 13, outline: 'none', background: 'rgba(255,255,255,.9)' }} />
