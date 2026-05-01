@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { createClient } from '@/app/lib/supabase/client';
 
-const TIKTOK_PROFILE = 'https://www.tiktok.com/@alwajudproperties';
+const TIKTOK_PROFILE = 'https://www.tiktok.com/@wahjud24';
 
 interface Reel {
   label: string;

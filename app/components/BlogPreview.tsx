@@ -22,7 +22,7 @@ export default function BlogPreview() {
     .filter(Boolean) as typeof BLOG_POSTS;
 
   return (
-    <section className="py-8 px-4 lg:py-20 lg:px-[60px] bg-[var(--bg)]">
+    <section className="pt-8 pb-12 px-4 lg:py-20 lg:px-[60px] bg-[var(--bg)]">
       <div>
         <div className="text-center mb-6 lg:mb-14">
           <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '10px' }}>

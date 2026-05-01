@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function HomeAbout() {
   return (
-    <section id="about" className="py-8 px-4 lg:py-20 lg:px-[60px] bg-[var(--bg)] lg:bg-white">
+    <section id="about" className="pt-8 pb-12 px-4 lg:py-20 lg:px-[60px] bg-[var(--bg)] lg:bg-white">
       <div>
         <div className="hidden lg:grid lg:grid-cols-2 gap-[72px] items-center">
           {/* Visual */}
@@ -43,8 +43,8 @@ export default function HomeAbout() {
               ))}
             </div>
             <Link href="/about"
-              className="inline-block text-white font-bold text-sm px-8 py-4 rounded-full transition-transform hover:-translate-y-0.5"
-              style={{ fontFamily: 'var(--font-poppins)', background: 'linear-gradient(135deg,var(--accent),#FF6B9D)', boxShadow: '0 8px 24px rgba(230,57,70,.4)' }}>
+              className="inline-block font-bold rounded-full transition-transform hover:-translate-y-0.5"
+              style={{ fontFamily: 'var(--font-poppins)', fontSize: '15px', padding: '16px 36px', background: 'linear-gradient(135deg,var(--accent),#FF6B9D)', color: '#fff', boxShadow: '0 8px 24px rgba(230,57,70,.4)' }}>
               Read Our Full Story →
             </Link>
           </div>
@@ -71,8 +71,8 @@ export default function HomeAbout() {
               ))}
             </div>
             <Link href="/about"
-              className="inline-block text-white font-bold text-sm px-6 py-3 rounded-full"
-              style={{ fontFamily: 'var(--font-poppins)', background: 'linear-gradient(135deg,var(--accent),#FF6B9D)' }}>
+              className="inline-block font-bold rounded-full transition-transform hover:-translate-y-0.5"
+              style={{ fontFamily: 'var(--font-poppins)', fontSize: '15px', padding: '16px 36px', background: 'linear-gradient(135deg,var(--accent),#FF6B9D)', color: '#fff', boxShadow: '0 8px 24px rgba(230,57,70,.4)' }}>
               Read Our Story →
             </Link>
           </div>

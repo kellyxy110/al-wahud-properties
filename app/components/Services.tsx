@@ -33,7 +33,7 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-8 px-4 lg:py-20 lg:px-[60px] bg-white lg:bg-[var(--bg)]">
+    <section id="services" className="pt-8 pb-12 px-4 lg:py-20 lg:px-[60px] bg-white lg:bg-[var(--bg)]">
       <div>
         <div className="text-center mb-6 lg:mb-14">
           <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '12px' }}>
@@ -75,8 +75,8 @@ export default function Services() {
 
         <div className="text-center mt-6 lg:mt-10">
           <Link href="/services"
-            className="inline-block font-bold text-[15px] px-9 py-4 rounded-full transition-all hover:-translate-y-0.5"
-            style={{ fontFamily: 'var(--font-poppins)', background: 'linear-gradient(135deg,var(--accent),#FF6B9D)', color: '#fff', boxShadow: '0 8px 24px rgba(230,57,70,.4)' }}>
+            className="inline-block font-bold rounded-full transition-transform hover:-translate-y-0.5"
+            style={{ fontFamily: 'var(--font-poppins)', fontSize: '15px', padding: '16px 36px', background: 'linear-gradient(135deg,var(--accent),#FF6B9D)', color: '#fff', boxShadow: '0 8px 24px rgba(230,57,70,.4)' }}>
             Explore All Services →
           </Link>
         </div>

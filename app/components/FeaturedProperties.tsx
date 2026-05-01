@@ -198,7 +198,7 @@ export default async function FeaturedProperties() {
   const hasSupabaseData = properties && properties.length >= 3;
 
   return (
-    <section id="listings" className="py-8 px-4 lg:py-20 lg:px-[60px] bg-[var(--bg)] lg:bg-white">
+    <section id="listings" className="pt-8 pb-12 px-4 lg:py-20 lg:px-[60px] bg-[var(--bg)] lg:bg-white">
       <div>
         <div className="text-center mb-6 lg:mb-14">
           <div style={{ fontFamily: 'var(--font-inter)', fontSize: '12px', fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '12px' }}>
@@ -222,8 +222,8 @@ export default async function FeaturedProperties() {
         <div className="text-center mt-6 lg:mt-10">
           <Link
             href="/properties"
-            className="inline-block font-bold text-[15px] px-10 py-4 rounded-full text-white transition-transform hover:-translate-y-0.5"
-            style={{ fontFamily: 'var(--font-poppins)', background: 'linear-gradient(135deg,var(--accent),#FF6B9D)', boxShadow: '0 8px 24px rgba(230,57,70,0.4)' }}
+            className="inline-block font-bold rounded-full transition-transform hover:-translate-y-0.5"
+            style={{ fontFamily: 'var(--font-poppins)', fontSize: '15px', padding: '16px 36px', background: 'linear-gradient(135deg,var(--accent),#FF6B9D)', color: '#fff', boxShadow: '0 8px 24px rgba(230,57,70,.4)' }}
           >
             View All Properties →
           </Link>
