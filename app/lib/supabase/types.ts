@@ -18,6 +18,7 @@ export interface Property {
   features: string[];
   amenities: { i: string; l: string }[];
   images: string[];
+  videos: string[];
   tiktok_id: string;
   whatsapp_text: string;
   gradient: string;

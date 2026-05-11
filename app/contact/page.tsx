@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
+import { ContactForm } from '@/app/components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact – Al-Wajud Properties',
@@ -93,69 +94,7 @@ export default function ContactPage() {
         </div>
 
         {/* Form side */}
-        <div style={{ background: '#fff', borderRadius: 24, padding: 36, boxShadow: '0 4px 32px rgba(0,0,0,.08)' }}>
-          <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 22, color: '#111827', marginBottom: 8 }}>Send Us a Message</div>
-          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 13, color: '#6B7280', marginBottom: 24 }}>Fill the form below and we&apos;ll respond within 24 hours.</div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 18 }}>
-            <div>
-              <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>Full Name *</label>
-              <input type="text" placeholder="Your full name" style={{ width: '100%', padding: '12px 16px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', boxSizing: 'border-box' }} />
-            </div>
-            <div>
-              <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>Email Address *</label>
-              <input type="email" placeholder="you@example.com" style={{ width: '100%', padding: '12px 16px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', boxSizing: 'border-box' }} />
-            </div>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 18 }}>
-            <div>
-              <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>Phone Number</label>
-              <input type="tel" placeholder="+234 000 000 0000" style={{ width: '100%', padding: '12px 16px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', boxSizing: 'border-box' }} />
-            </div>
-            <div>
-              <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>Country *</label>
-              <select style={{ width: '100%', padding: '12px 16px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', cursor: 'pointer', boxSizing: 'border-box' }}>
-                <option value="">Select country...</option>
-                <option>Nigeria</option>
-                <option>United Kingdom</option>
-                <option>United States</option>
-                <option>Canada</option>
-                <option>UAE</option>
-                <option>Australia</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-          <div style={{ marginBottom: 18 }}>
-            <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>I&apos;m interested in: *</label>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginTop: 6 }}>
-              {['Buying Property', 'Renting Property', 'Property Investment', 'Listing My Property', 'Construction Services', 'Facility Management', 'Other'].map(opt => (
-                <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: 8, fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', cursor: 'pointer' }}>
-                  <input type="checkbox" style={{ accentColor: '#1B9954', width: 15, height: 15 }} /> {opt}
-                </label>
-              ))}
-            </div>
-          </div>
-          <div style={{ marginBottom: 18 }}>
-            <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>Budget Range</label>
-            <select style={{ width: '100%', padding: '12px 16px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', cursor: 'pointer', boxSizing: 'border-box' }}>
-              <option value="">Select budget...</option>
-              <option>₦5M – ₦20M</option>
-              <option>₦20M – ₦50M</option>
-              <option>₦50M – ₦120M</option>
-              <option>₦120M – ₦300M</option>
-              <option>₦300M+</option>
-            </select>
-          </div>
-          <div style={{ marginBottom: 18 }}>
-            <label style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 6, display: 'block' }}>Message *</label>
-            <textarea placeholder="Tell us more about what you're looking for..." rows={4} style={{ width: '100%', padding: '12px 16px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', resize: 'vertical', minHeight: 120, boxSizing: 'border-box' }} />
-          </div>
-          <a href="https://wa.me/2347035374592?text=Hello%20Al-Wajud%20Properties!%20I%20would%20like%20a%20free%20consultation." target="_blank" rel="noopener noreferrer"
-            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', background: 'linear-gradient(135deg,#1B9954,#0F5E36)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 15, border: 'none', borderRadius: 14, padding: 16, cursor: 'pointer', boxShadow: '0 8px 24px rgba(27,153,84,.4)', textDecoration: 'none', marginTop: 4 }}>
-            Submit Message
-          </a>
-          <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#9CA3AF', textAlign: 'center', marginTop: 12 }}>We&apos;ll respond within 24 hours · Your data is 100% secure</p>
-        </div>
+        <ContactForm variant="pc" />
       </div>
 
       {/* ── Map Section (PC) ── */}
@@ -226,35 +165,8 @@ export default function ContactPage() {
       </div>
 
       {/* Mobile contact form */}
-      <div className="lg:hidden" style={{ background: '#fff', margin: '0 16px', borderRadius: 20, padding: 22, boxShadow: '0 4px 16px rgba(0,0,0,.06)' }}>
-        <div style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 17, color: '#111827', marginBottom: 6 }}>Send a Message</div>
-        <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: '#6B7280', marginBottom: 18 }}>We&apos;ll respond within 24 hours</div>
-        <input type="text" placeholder="Your Full Name *" style={{ width: '100%', padding: '12px 14px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', marginBottom: 12, boxSizing: 'border-box' }} />
-        <input type="email" placeholder="Email Address *" style={{ width: '100%', padding: '12px 14px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', marginBottom: 12, boxSizing: 'border-box' }} />
-        <input type="tel" placeholder="Phone Number" style={{ width: '100%', padding: '12px 14px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', marginBottom: 12, boxSizing: 'border-box' }} />
-        <select style={{ width: '100%', padding: '12px 14px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', cursor: 'pointer', marginBottom: 12, boxSizing: 'border-box' }}>
-          <option value="">Select country...</option>
-          <option>Nigeria</option><option>United Kingdom</option><option>United States</option><option>Canada</option><option>UAE</option><option>Other</option>
-        </select>
-        <div style={{ marginBottom: 12 }}>
-          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: '#111827', marginBottom: 8 }}>I&apos;m interested in: *</div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
-            {['Buying', 'Renting', 'Investment', 'Listing', 'Construction', 'Other'].map(opt => (
-              <label key={opt} style={{ display: 'flex', alignItems: 'center', gap: 6, fontFamily: 'var(--font-inter)', fontSize: 12, color: '#374151' }}>
-                <input type="checkbox" style={{ accentColor: '#1B9954' }} /> {opt}
-              </label>
-            ))}
-          </div>
-        </div>
-        <select style={{ width: '100%', padding: '12px 14px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', cursor: 'pointer', marginBottom: 12, boxSizing: 'border-box' }}>
-          <option value="">Budget range...</option>
-          <option>₦5M – ₦20M</option><option>₦20M – ₦50M</option><option>₦50M – ₦120M</option><option>₦120M – ₦300M</option><option>₦300M+</option>
-        </select>
-        <textarea placeholder="Message... *" rows={4} style={{ width: '100%', padding: '12px 14px', borderRadius: 12, border: '1.5px solid #E5E7EB', fontFamily: 'var(--font-inter)', fontSize: 13, color: '#374151', background: '#F9FAFB', outline: 'none', resize: 'vertical', minHeight: 90, marginBottom: 12, boxSizing: 'border-box' }} />
-        <a href="https://wa.me/2347035374592?text=Hello%20Al-Wajud%20Properties!" target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '100%', background: 'linear-gradient(135deg,#1B9954,#0F5E36)', color: '#fff', fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 14, border: 'none', borderRadius: 14, padding: 14, cursor: 'pointer', boxShadow: '0 6px 20px rgba(27,153,84,.4)', textDecoration: 'none', textAlign: 'center' }}>
-          Submit Message
-        </a>
-        <p style={{ fontFamily: 'var(--font-inter)', fontSize: 11, color: '#9CA3AF', textAlign: 'center', marginTop: 10 }}>We&apos;ll respond within 24 hours</p>
+      <div className="lg:hidden">
+        <ContactForm variant="mobile" />
       </div>
 
       {/* Mobile office info */}
