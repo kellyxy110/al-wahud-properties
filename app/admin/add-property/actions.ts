@@ -27,8 +27,11 @@ export async function addProperty(
   const tiktok_id     = (formData.get('tiktok_id') as string).trim();
   const whatsapp_text = (formData.get('whatsapp_text') as string).trim();
   const gradient      = (formData.get('gradient') as string).trim() || 'linear-gradient(135deg,#1B9954,#0F5E36)';
-  const featured      = formData.get('featured') === 'on';
-  const published     = formData.get('published') === 'on';
+  const featured       = formData.get('featured')      === 'on';
+  const featured_tour  = formData.get('featured_tour') === 'on';
+  const homepage_hero  = formData.get('homepage_hero') === 'on';
+  const trending       = formData.get('trending')      === 'on';
+  const published      = formData.get('published')     === 'on';
 
   // ── Parse array / JSON fields ──────────────────────────────────────────
   const featuresRaw = (formData.get('features') as string).trim();
@@ -41,9 +44,8 @@ export async function addProperty(
     ? imagesRaw.split(',').map(u => u.trim()).filter(Boolean)
     : [];
 
-  // Block SSRF: only allow images from trusted CDN hosts
+  // Block SSRF: only allow images from trusted hosts
   const ALLOWED_IMAGE_HOSTS = [
-    'res.cloudinary.com',
     'abynlxbyoeqebattetdg.supabase.co',
     'images.unsplash.com',
   ];
@@ -58,7 +60,7 @@ export async function addProperty(
   if (invalidImages.length > 0) {
     return {
       status: 'error',
-      message: `Invalid image URL${invalidImages.length > 1 ? 's' : ''} — must be HTTPS from Cloudinary, Supabase, or Unsplash:\n${invalidImages.join('\n')}`,
+      message: `Invalid image URL${invalidImages.length > 1 ? 's' : ''} — must be HTTPS from Supabase Storage:\n${invalidImages.join('\n')}`,
     };
   }
 
@@ -93,16 +95,36 @@ export async function addProperty(
                  return { status: 'error', message: 'Location key is required.' };
 
   // ── Insert ─────────────────────────────────────────────────────────────
-  const { data, error } = await getSupabaseAdmin()
+  const basePayload = {
+    title, price, price_period, location, location_key,
+    status, property_type, bedrooms, bathrooms, sqm,
+    description, features, amenities, images,
+    tiktok_id, whatsapp_text, gradient, featured, published,
+  };
+
+  // Try with extended fields first; fall back if columns don't exist yet
+  let data: { id: number } | null = null;
+  let error: { message: string } | null = null;
+
+  const extResult = await getSupabaseAdmin()
     .from('properties')
-    .insert({
-      title, price, price_period, location, location_key,
-      status, property_type, bedrooms, bathrooms, sqm,
-      description, features, amenities, images,
-      tiktok_id, whatsapp_text, gradient, featured, published,
-    })
+    .insert({ ...basePayload, featured_tour, homepage_hero, trending })
     .select('id')
     .single();
+
+  if (extResult.error?.message?.toLowerCase().includes('column')) {
+    // Extended columns not in DB yet — insert base fields only
+    const fallback = await getSupabaseAdmin()
+      .from('properties')
+      .insert(basePayload)
+      .select('id')
+      .single();
+    data  = fallback.data;
+    error = fallback.error;
+  } else {
+    data  = extResult.data;
+    error = extResult.error;
+  }
 
   if (error) {
     return { status: 'error', message: error.message };
@@ -111,6 +133,6 @@ export async function addProperty(
   return {
     status: 'success',
     message: `Property "${title}" added successfully!`,
-    propertyId: data.id,
+    propertyId: data!.id,
   };
 }

@@ -1,58 +1,48 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import LogoutButton from '@/app/admin/_components/LogoutButton';
+import AdminShell from '@/app/admin/_components/AdminShell';
 import BlogUploadForm from './BlogUploadForm';
 
 export const metadata: Metadata = {
-  title : 'Blog Upload | Al-Wajud Admin',
+  title : 'Blog CMS | Al-Wajud Admin',
   robots: { index: false, follow: false },
 };
 
 export default function BlogUploadPage() {
   return (
-    <div className="min-h-screen" style={{ background: 'var(--bg)' }}>
-
-      <header
-        className="sticky top-0 z-50 flex items-center justify-between px-6 lg:px-12 h-[60px]"
-        style={{ background: '#0F5E36', boxShadow: '0 2px 12px rgba(0,0,0,0.15)' }}
-      >
-        <div className="flex items-center gap-4">
-          <Link href="/" style={{ fontFamily: 'var(--font-poppins)', fontWeight: 900, fontSize: 18, color: '#fff' }}>
-            Al-Waj<span style={{ color: '#FFB703' }}>ud</span>
-          </Link>
-          <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 18 }}>/</span>
-          <span style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.85)' }}>
-            Blog Upload
-          </span>
-        </div>
-        <div className="flex items-center gap-3">
-          <Link href="/admin"
-            style={{ fontFamily: 'var(--font-inter)', fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,0.75)', background: 'rgba(255,255,255,0.1)', borderRadius: 999, padding: '6px 16px' }}>
-            Dashboard
-          </Link>
-          <LogoutButton />
-        </div>
-      </header>
-
-      <main className="max-w-2xl mx-auto px-4 py-10">
-        <div style={{ marginBottom: 28 }}>
-          <div style={{ fontFamily: 'var(--font-inter)', fontSize: 12, fontWeight: 600, color: 'var(--primary)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: 8 }}>
-            Admin Panel
-          </div>
-          <h1 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 800, fontSize: 'clamp(22px,4vw,28px)', color: 'var(--dark-text)', marginBottom: 6 }}>
-            Blog Image Upload
-          </h1>
-          <p style={{ fontFamily: 'var(--font-inter)', fontSize: 14, color: 'var(--gray)', lineHeight: 1.6 }}>
-            Upload a blog post cover image to Supabase Storage. Copy the generated URL and
-            paste it into the <code style={{ background: '#F3F4F6', padding: '1px 6px', borderRadius: 4, fontSize: 12 }}>img</code> field
-            in <code style={{ background: '#F3F4F6', padding: '1px 6px', borderRadius: 4, fontSize: 12 }}>app/lib/data.ts</code>.
-          </p>
-        </div>
-
-        <div className="bg-white rounded-[24px] p-6 lg:p-8" style={{ boxShadow: '0 4px 30px rgba(0,0,0,0.07)' }}>
+    <AdminShell
+      title="Blog CMS"
+      subtitle="Upload blog post cover images to Supabase Storage and manage post records."
+    >
+      <div className="px-4 lg:px-8" style={{ paddingTop: 28, paddingBottom: 40, maxWidth: 720 }}>
+        <div style={{
+          background: 'rgba(255,255,255,0.03)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          border: '1px solid rgba(255,255,255,0.07)',
+          borderRadius: 24,
+          padding: 'clamp(20px, 4vw, 36px)',
+        }}>
           <BlogUploadForm />
         </div>
-      </main>
-    </div>
+
+        {/* How-to callout */}
+        <div style={{
+          marginTop: 20,
+          background: 'rgba(27,153,84,0.08)',
+          border: '1px solid rgba(27,153,84,0.2)',
+          borderRadius: 16,
+          padding: '16px 20px',
+        }}>
+          <p style={{ fontFamily: 'var(--font-inter)', fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,0.6)', marginBottom: 8 }}>
+            How to use the URL in your blog posts:
+          </p>
+          <ol style={{ fontFamily: 'var(--font-inter)', fontSize: 12, color: 'rgba(255,255,255,0.4)', lineHeight: 2, paddingLeft: 18, margin: 0 }}>
+            <li>Upload image above and copy the public URL</li>
+            <li>Open <code style={{ background: 'rgba(255,255,255,0.08)', padding: '1px 6px', borderRadius: 4, color: 'rgba(255,255,255,0.7)' }}>app/lib/data.ts</code></li>
+            <li>Find the blog post and update its <code style={{ background: 'rgba(255,255,255,0.08)', padding: '1px 6px', borderRadius: 4, color: 'rgba(255,255,255,0.7)' }}>img</code> field</li>
+          </ol>
+        </div>
+      </div>
+    </AdminShell>
   );
 }

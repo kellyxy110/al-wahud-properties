@@ -22,10 +22,13 @@ export interface Property {
   tiktok_id: string;
   whatsapp_text: string;
   gradient: string;
-  featured: boolean;
-  published: boolean;
-  created_at: string;
-  updated_at: string;
+  featured      : boolean;
+  featured_tour : boolean;
+  homepage_hero : boolean;
+  trending      : boolean;
+  published     : boolean;
+  created_at    : string;
+  updated_at    : string;
 }
 
 export interface BlogPost {

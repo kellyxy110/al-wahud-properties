@@ -18,9 +18,9 @@ const securityHeaders = [
   // - default: self only
   // - scripts: self + unsafe-inline (needed for Next.js theme script in <head>)
   // - styles: self + unsafe-inline (Tailwind inline styles throughout)
-  // - images: self + data: + Cloudinary + Supabase + Unsplash
+  // - images: self + data: + Supabase + Unsplash
   // - frames: TikTok embed + Google Maps
-  // - connect: Supabase + Cloudinary
+  // - connect: Supabase only
   // - fonts: Google Fonts
   {
     key: 'Content-Security-Policy',
@@ -29,9 +29,9 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
-      "img-src 'self' data: blob: https://res.cloudinary.com https://abynlxbyoeqebattetdg.supabase.co https://images.unsplash.com",
+      "img-src 'self' data: blob: https://abynlxbyoeqebattetdg.supabase.co https://images.unsplash.com",
       "frame-src https://www.tiktok.com https://www.google.com",
-      "connect-src 'self' https://abynlxbyoeqebattetdg.supabase.co https://api.cloudinary.com",
+      "connect-src 'self' https://abynlxbyoeqebattetdg.supabase.co",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
@@ -45,7 +45,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'abynlxbyoeqebattetdg.supabase.co' },
-      { protocol: 'https', hostname: 'res.cloudinary.com' },
     ],
   },
   async headers() {
