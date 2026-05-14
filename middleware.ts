@@ -12,7 +12,7 @@ async function makeToken(u: string, p: string): Promise<string> {
     .join('');
 }
 
-export async function proxy(req: NextRequest) {
+export default async function middleware(req: NextRequest) {
   const path = req.nextUrl.pathname;
 
   // Login page is always public — never block it (avoids redirect loop)
