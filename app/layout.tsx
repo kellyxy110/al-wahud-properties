@@ -17,10 +17,31 @@ const inter = Inter({
   display: 'swap',
 });
 
+const BASE_URL = 'https://alwajudproperties.com';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: 'Al-Wajud Properties – Premium Real Estate Nigeria',
   description: 'Discover luxury properties across Lagos, Abuja, Port Harcourt and beyond. Trusted by 500+ happy families and investors. NIESV-certified, CAC-registered.',
   keywords: 'real estate Nigeria, Lagos property, Abuja property, luxury homes Nigeria',
+  alternates: {
+    canonical: BASE_URL,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_NG',
+    url: BASE_URL,
+    siteName: 'Al-Wajud Properties',
+    title: 'Al-Wajud Properties – Premium Real Estate Nigeria',
+    description: 'Discover luxury properties across Lagos, Abuja, Port Harcourt and beyond. Trusted by 500+ happy families and investors.',
+    images: [{ url: '/images/businessinfo2.jpeg', width: 1200, height: 630, alt: 'Al-Wajud Properties – Premium Real Estate Nigeria' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Al-Wajud Properties – Premium Real Estate Nigeria',
+    description: 'Discover luxury properties across Lagos, Abuja, Port Harcourt and beyond. Trusted by 500+ happy families and investors.',
+    images: ['/images/businessinfo2.jpeg'],
+  },
 };
 
 // Runs synchronously before React hydrates — sets dark/light class based on local hour.

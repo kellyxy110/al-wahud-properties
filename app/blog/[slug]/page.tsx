@@ -16,9 +16,25 @@ export async function generateMetadata(
   const { slug } = await params;
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) return { title: 'Post Not Found – Al-Wajud Properties' };
+  const url = `https://alwajudproperties.com/blog/${slug}`;
   return {
     title: `${post.title} – Al-Wajud Properties Blog`,
     description: post.excerpt,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'article',
+      url,
+      siteName: 'Al-Wajud Properties',
+      title: post.title,
+      description: post.excerpt,
+      images: [{ url: post.img, width: 1200, height: 630, alt: post.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [post.img],
+    },
   };
 }
 

@@ -47,6 +47,16 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'abynlxbyoeqebattetdg.supabase.co' },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.alwajudproperties.com' }],
+        destination: 'https://alwajudproperties.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
